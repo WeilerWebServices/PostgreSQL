@@ -1,0 +1,625 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 20:57:03 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Container Deployment &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/container_deployment.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/container_deployment.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/container_deployment.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/container_deployment.html">4.17</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/container_deployment.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="login.html" title="Login Dialog">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="server_deployment.html" title="Server Deployment">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a href="getting_started.html">Getting Started</a> &raquo;</li>
+<li class="nav-item nav-item-2"><a accesskey="U" href="deployment.html">Deployment</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">Container Deployment</a><ul>
+<li><a class="reference internal" href="#postgresql-utilities">PostgreSQL Utilities</a></li>
+<li><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li><a class="reference internal" href="#mapped-files-and-directories">Mapped Files and Directories</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+<li><a class="reference internal" href="#reverse-proxying">Reverse Proxying</a><ul>
+<li><a class="reference internal" href="#pgadmin-x-forwarded-configuration">pgAdmin X-Forwarded-* Configuration</a></li>
+<li><a class="reference internal" href="#http-via-nginx">HTTP via Nginx</a></li>
+<li><a class="reference internal" href="#https-via-nginx">HTTPS via Nginx</a></li>
+<li><a class="reference internal" href="#traefik">Traefik</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">Login Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html">User Management Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_user_password.html">Change User Password Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html">Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbar.html">Toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabbed_browser.html">Tabbed Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_control.html">Tree Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html">Preferences Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="container-deployment">
+<span id="id1"></span><h1><span class="target" id="index-0"></span>Container Deployment<a class="headerlink" href="#container-deployment" title="Permalink to this headline">&para;</a></h1>
+<p>pgAdmin can be deployed in a container using the image at:</p>
+<blockquote>
+<div><a class="reference external" href="https://hub.docker.com/r/dpage/pgadmin4/">https://hub.docker.com/r/dpage/pgadmin4/</a></div></blockquote>
+<div class="section" id="postgresql-utilities">
+<h2>PostgreSQL Utilities<a class="headerlink" href="#postgresql-utilities" title="Permalink to this headline">&para;</a></h2>
+<p>The PostgreSQL utilities <em>pg_dump</em>, <em>pg_dumpall</em>, <em>pg_restore</em> and <em>psql</em> are
+included in the container to allow backups to be created and restored and other
+maintenance functions to be executed. Multiple versions are included in the
+following directories to allow use with different versions of the database
+server:</p>
+<ul class="simple">
+<li>PostgreSQL 9.4: <em>/usr/local/pgsql-9.4</em></li>
+<li>PostgreSQL 9.5: <em>/usr/local/pgsql-9.5</em></li>
+<li>PostgreSQL 9.6: <em>/usr/local/pgsql-9.6</em></li>
+<li>PostgreSQL 10: <em>/usr/local/pgsql-10</em></li>
+<li>PostgreSQL 11: <em>/usr/local/pgsql-11</em></li>
+<li>PostgreSQL 12: <em>/usr/local/pgsql-12</em></li>
+</ul>
+<p>The most recent version of the utilities is used by default; this may be
+changed in the <a class="reference internal" href="preferences.html#preferences"><span class="std std-ref">Preferences Dialog</span></a>.</p>
+</div>
+<div class="section" id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">&para;</a></h2>
+<p>The container will accept the following variables at startup:</p>
+<p><strong>PGADMIN_DEFAULT_EMAIL</strong></p>
+<p>This is the email address used when setting up the initial administrator account
+to login to pgAdmin. This variable is required and must be set at launch time.</p>
+<p><strong>PGADMIN_DEFAULT_PASSWORD</strong></p>
+<p>This is the password used when setting up the initial administrator account to
+login to pgAdmin. This variable is required and must be set at launch time.</p>
+<p><strong>PGADMIN_ENABLE_TLS</strong></p>
+<p><em>Default: &lt;null&gt;</em></p>
+<p>If left un-set, the container will listen on port 80 for connections in plain
+text. If set to any value, the container will listen on port 443 for TLS
+connections.</p>
+<p>When TLS is enabled, a certificate and key must be provided. Typically these
+should be stored on the host file system and mounted from the container. The
+expected paths are /certs/server.crt and /certs/server.key</p>
+<p><strong>PGADMIN_LISTEN_ADDRESS</strong></p>
+<p><em>Default: [::]</em></p>
+<p>Specify the local address that the servers listens on. The default should work
+for most users - in IPv4-only environments, this may need to be set to
+127.0.0.1.</p>
+<p><strong>PGADMIN_LISTEN_PORT</strong></p>
+<p><em>Default: 80 or 443 (if TLS is enabled)</em></p>
+<p>Allows the port that the server listens on to be set to a specific value rather
+than using the default.</p>
+<p><strong>PGADMIN_SERVER_JSON_FILE</strong></p>
+<p><em>Default: /pgadmin4/servers.json</em></p>
+<p>Override the default file path for the server definition list. See the
+/pgadmin4/servers.json mapped file below for more information.</p>
+<p><strong>GUNICORN_ACCESS_LOGFILE</strong></p>
+<p><em>Default: -</em> (stdout)</p>
+<p>Specify an output file in which to store the Gunicorn access logs, instead of
+sending them to stdout.</p>
+<p><strong>GUNICORN_THREADS</strong></p>
+<p><em>Default: 25</em></p>
+<p>Adjust the number of threads the Gunicorn server uses to handle incoming
+requests. This should typically be left as-is, except in highly loaded systems
+where it may be increased.</p>
+<p><strong>PGADMIN_CONFIG_</strong></p>
+<p>This is a variable prefix that can be used to override any of the configuration
+options in pgAdmin&rsquo;s <em>config.py</em> file. Add the <em>PGADMIN_CONFIG_</em> prefix to any
+variable name from <em>config.py</em> and give the value in the format &lsquo;string value&rsquo;
+for strings, True/False for booleans or 123 for numbers. See below for an
+example.</p>
+<p>Settings are written to <em>/pgadmin4/config_distro.py</em> within the container, which
+is read after <em>/pgadmin4/config.py</em> and before <em>/pgadmin4/config_local.py</em>.
+Any settings given will therefore override anything in config.py, but can be
+overridden by settings in config_local.py.</p>
+<p>See <a class="reference internal" href="config_py.html#config-py"><span class="std std-ref">The config.py File</span></a> for more information on the available configuration settings.</p>
+</div>
+<div class="section" id="mapped-files-and-directories">
+<h2>Mapped Files and Directories<a class="headerlink" href="#mapped-files-and-directories" title="Permalink to this headline">&para;</a></h2>
+<p>The following files or directories can be mapped from the container onto the
+host machine to allow configuration to be customised and shared between
+instances.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Warning: pgAdmin runs as the <em>pgadmin</em> user (UID: 5050) in the
+<em>pgadmin</em> group (GID: 5050) in the container. You must ensure that all files
+are readable, and where necessary (e.g. the working/session directory)
+writeable for this user on the host machine. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo chown -R <span class="m">5050</span>:5050 &lt;host_directory&gt;
+</pre></div>
+</div>
+<p>On some filesystems that do not support extended attributes, it may not be
+possible to run pgAdmin without specifying a value for <em>PGADMIN_LISTEN_PORT</em>
+that is greater than 1024. In such cases, specify an alternate port when
+launching the container by adding the environment variable, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-e <span class="s1">'PGADMIN_LISTEN_PORT=5050'</span>
+</pre></div>
+</div>
+<p class="last">Don&rsquo;t forget to adjust any host-container port mapping accordingly.</p>
+</div>
+<p><strong>/var/lib/pgadmin</strong></p>
+<p>This is the working directory in which pgAdmin stores session data, user files,
+configuration files, and it&rsquo;s configuration database. Mapping this directory
+onto the host machine gives you an easy way to maintain configuration between
+invocations of the container.</p>
+<p><strong>/pgadmin4/config_local.py</strong></p>
+<p>This file can be used to override configuration settings in pgAdmin. Settings
+found in config.py can be overridden with deployment specific values if
+required. Settings in config_local.py will also override anything specified in
+the container environment through <em>PGADMIN_CONFIG_</em> prefixed variables.</p>
+<p><strong>/pgadmin4/servers.json</strong></p>
+<p>If this file is mapped, server definitions found in it will be loaded at launch
+time. This allows connection information to be pre-loaded into the instance of
+pgAdmin in the container. Note that server definitions are only loaded on first
+launch, i.e. when the configuration database is created, and not on subsequent
+launches using the same configuration database.</p>
+<p><strong>/certs/server.cert</strong></p>
+<p>If TLS is enabled, this file will be used as the servers TLS certificate.</p>
+<p><strong>/certs/server.key</strong></p>
+<p>If TLS is enabled, this file will be used as the key file for the servers TLS
+certificate.</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">&para;</a></h2>
+<p>Run a simple container over port 80:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull dpage/pgadmin4
+docker run -p <span class="m">80</span>:80 <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_DEFAULT_EMAIL=user@domain.com'</span> <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_DEFAULT_PASSWORD=SuperSecret'</span> <span class="se">\</span>
+    -d dpage/pgadmin4
+</pre></div>
+</div>
+<p>Run a simple container over port 80, setting some configuration options:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull dpage/pgadmin4
+docker run -p <span class="m">80</span>:80 <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_DEFAULT_EMAIL=user@domain.com'</span> <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_DEFAULT_PASSWORD=SuperSecret'</span> <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True'</span> <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"'</span> <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10'</span> <span class="se">\</span>
+    -d dpage/pgadmin4
+</pre></div>
+</div>
+<p>Run a TLS secured container using a shared config/storage directory in
+/private/var/lib/pgadmin on the host, and servers pre-loaded from
+/tmp/servers.json on the host:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull dpage/pgadmin4
+docker run -p <span class="m">443</span>:443 <span class="se">\</span>
+    -v /private/var/lib/pgadmin:/var/lib/pgadmin <span class="se">\</span>
+    -v /path/to/certificate.cert:/certs/server.cert <span class="se">\</span>
+    -v /path/to/certificate.key:/certs/server.key <span class="se">\</span>
+    -v /tmp/servers.json:/pgadmin4/servers.json <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_DEFAULT_EMAIL=user@domain.com'</span> <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_DEFAULT_PASSWORD=SuperSecret'</span> <span class="se">\</span>
+    -e <span class="s1">'PGADMIN_ENABLE_TLS=True'</span> <span class="se">\</span>
+    -d dpage/pgadmin4
+</pre></div>
+</div>
+</div>
+<div class="section" id="reverse-proxying">
+<h2>Reverse Proxying<a class="headerlink" href="#reverse-proxying" title="Permalink to this headline">&para;</a></h2>
+<p>Sometimes it&rsquo;s desirable to have users connect to pgAdmin through a reverse
+proxy rather than directly to the container it&rsquo;s running in. The following
+examples show how this can be achieved. With traditional reverse proxy servers
+such as <a class="reference external" href="https://www.nginx.com/">Nginx</a>, pgAdmin is running in a container on
+the same host, with port 5050 on the host mapped to port 80 on the container,
+for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull dpage/pgadmin4
+docker run -p <span class="m">5050</span>:80 <span class="se">\</span>
+    -e <span class="s2">"PGADMIN_DEFAULT_EMAIL=user@domain.com"</span> <span class="se">\</span>
+    -e <span class="s2">"PGADMIN_DEFAULT_PASSWORD=SuperSecret"</span> <span class="se">\</span>
+    -d dpage/pgadmin4
+</pre></div>
+</div>
+<div class="section" id="pgadmin-x-forwarded-configuration">
+<h3>pgAdmin X-Forwarded-* Configuration<a class="headerlink" href="#pgadmin-x-forwarded-configuration" title="Permalink to this headline">&para;</a></h3>
+<p>pgAdmin needs to understand how many proxies set each header so it knows what
+values to trust. The configuration parameters for the X-Forwarded-* options
+which are used for this purpose are shown below, along with their default
+values.</p>
+<p>pgAdmin is configured by default to be able to run behind a reverse proxy even
+on a non-standard port and these config options don&rsquo;t normally need to be
+changed. If you&rsquo;re running an unusual configuration (such as multiple reverse
+proxies) you can adjust the configuration to suit.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Number of values to trust for X-Forwarded-For</span>
+<span class="n">PROXY_X_FOR_COUNT</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Proto.</span>
+<span class="n">PROXY_X_PROTO_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Host.</span>
+<span class="n">PROXY_X_HOST_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Port.</span>
+<span class="n">PROXY_X_PORT_COUNT</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Prefix.</span>
+<span class="n">PROXY_X_PREFIX_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="http-via-nginx">
+<h3>HTTP via Nginx<a class="headerlink" href="#http-via-nginx" title="Permalink to this headline">&para;</a></h3>
+<p>A configuration similar to the following can be used to create a simple HTTP
+reverse proxy listening for all hostnames with <a class="reference external" href="https://www.nginx.com/">Nginx</a>:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">_</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:5050/</span><span class="p">;</span>
+        <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you wish to host pgAdmin under a subdirectory rather than on the root of the
+server, you must specify the location and set the <em>X-Script-Name</em> header which
+tells the pgAdmin container how to rewrite paths:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">_</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/pgadmin4/</span> <span class="p">{</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Script-Name</span> <span class="s">/pgadmin4</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:5050/</span><span class="p">;</span>
+        <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If Nginx is also running in a container, there is no need to map the pgAdmin
+port to the host, provided the two containers are running in the same Docker
+network. In such a configuration, the <em>proxy_pass</em> option would be changed to
+point to the pgAdmin container within the Docker network.</p>
+</div>
+<div class="section" id="https-via-nginx">
+<h3>HTTPS via Nginx<a class="headerlink" href="#https-via-nginx" title="Permalink to this headline">&para;</a></h3>
+<p>The following configuration can be used to serve pgAdmin over HTTPS to the user
+whilst the backend container is serving plain HTTP to the proxy server. In this
+configuration we not only set <em>X-Script-Name</em>, but also <em>X-Scheme</em> to tell the
+pgAdmin server to generate any URLs using the correct scheme. A redirect from
+HTTP to HTTPS is also included. The certificate and key paths may need to be
+adjusted as appropriate to the specific deployment:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">443</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">_</span><span class="p">;</span>
+
+    <span class="kn">ssl_certificate</span> <span class="s">/etc/nginx/server.crt</span><span class="p">;</span>
+    <span class="kn">ssl_certificate_key</span> <span class="s">/etc/nginx/server.key</span><span class="p">;</span>
+
+    <span class="kn">ssl</span> <span class="no">on</span><span class="p">;</span>
+    <span class="kn">ssl_session_cache</span> <span class="n">builtin</span><span class="p">:</span><span class="mi">1000</span> <span class="s">shared:SSL:10m</span><span class="p">;</span>
+    <span class="kn">ssl_protocols</span> <span class="s">TLSv1</span> <span class="s">TLSv1.1</span> <span class="s">TLSv1.2</span><span class="p">;</span>
+    <span class="kn">ssl_ciphers</span> <span class="s">HIGH:!aNULL:!eNULL:!EXPORT:!CAMELLIA:!DES:!MD5:!PSK:!RC4</span><span class="p">;</span>
+    <span class="kn">ssl_prefer_server_ciphers</span> <span class="no">on</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/pgadmin4/</span> <span class="p">{</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Script-Name</span> <span class="s">/pgadmin4</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Scheme</span> <span class="nv">$scheme</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:5050/</span><span class="p">;</span>
+        <span class="kn">proxy_redirect</span> <span class="no">off</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="traefik">
+<h3>Traefik<a class="headerlink" href="#traefik" title="Permalink to this headline">&para;</a></h3>
+<p>Configuring <a class="reference external" href="https://traefik.io/">Traefik</a> is straightforward for either HTTP
+or HTTPS when running pgAdmin in a container as it will automatically configure
+itself to serve content from containers that are running on the local machine,
+virtual hosting them at <em>&lt;container_name&gt;.&lt;domain_name&gt;</em>, where the domain
+name is that specified in the Traefik configuration. The container is typically
+launched per the example below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull dpage/pgadmin4
+docker run --name <span class="s2">"pgadmin4"</span> <span class="se">\</span>
+    -e <span class="s2">"PGADMIN_DEFAULT_EMAIL=user@domain.com"</span> <span class="se">\</span>
+    -e <span class="s2">"PGADMIN_DEFAULT_PASSWORD=SuperSecret"</span> <span class="se">\</span>
+    -d dpage/pgadmin4
+</pre></div>
+</div>
+<p>Note that the TCP/IP port has not been mapped to the host as it was in the
+Nginx example, and the container name has been set to a known value as it will
+be used as the hostname and may need to be added to the DNS zone file.</p>
+<p>The following configuration will listen on ports 80 and 443, redirecting 80 to
+443, using the default certificate shipped with Traefik. See the Traefik
+documentation for options to use certificates from LetsEncrypt or other issuers.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="na">defaultEntryPoints</span> <span class="o">=</span> <span class="s">["http", "https"]</span>
+
+<span class="k">[entryPoints]</span>
+  <span class="k">[entryPoints.http]</span>
+    <span class="na">address</span> <span class="o">=</span> <span class="s">":80"</span>
+<span class="s">      [entryPoints.http.redirect]</span>
+<span class="s">        entryPoint = "https"</span>
+<span class="s">  [entryPoints.https]</span>
+<span class="s">    address = ":443"</span>
+<span class="s">      [entryPoints.https.tls]</span>
+
+<span class="k">[docker]</span>
+<span class="na">domain</span> <span class="o">=</span> <span class="s">"domain_name"</span>
+<span class="na">watch</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
+<p>If you wish to host pgAdmin under a subdirectory using Traefik, the
+configuration changes are typically made to the way the container is launched
+and not to Traefik itself. For example, to host pgAdmin under <em>/pgadmin4/</em>
+instead of at the root directory, the Traefik configuration above may be used if
+the container is launched like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker pull dpage/pgadmin4
+docker run --name <span class="s2">"pgadmin4"</span> <span class="se">\</span>
+    -e <span class="s2">"PGADMIN_DEFAULT_EMAIL=user@domain.com"</span> <span class="se">\</span>
+    -e <span class="s2">"PGADMIN_DEFAULT_PASSWORD=SuperSecret"</span> <span class="se">\</span>
+    -e <span class="s2">"SCRIPT_NAME=/pgadmin4"</span> <span class="se">\</span>
+    -l <span class="s2">"traefik.frontend.rule=PathPrefix:/pgadmin4"</span> <span class="se">\</span>
+    -d dpage/pgadmin4
+</pre></div>
+</div>
+<p>The <em>SCRIPT_NAME</em> environment variable has been set to tell the container it is
+being hosted under a subdirectory (in the same way as the <em>X-Script-Name</em> header
+is used with Nginx), and a label has been added to tell Traefik to route
+requests under the subdirectory to this container.</p>
+</div>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,386 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 20:58:06 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Getting Started &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/getting_started.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/getting_started.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/getting_started.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/getting_started.html">4.17</a>
+                     | 
+                    <a  href="/docs/pgadmin4/3.6/getting_started.html">3.6</a>
+                     | 
+                    <a  href="/docs/pgadmin4/2.1/getting_started.html">2.1</a>
+                     | 
+                    <a  href="/docs/pgadmin4/1.6/getting_started.html">1.6</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/getting_started.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="deployment.html" title="Deployment">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="index.html" title="pgAdmin 4">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">Login Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html">User Management Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_user_password.html">Change User Password Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html">Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbar.html">Toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabbed_browser.html">Tabbed Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_control.html">Tree Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html">Preferences Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="getting-started">
+<span id="id1"></span><h1><span class="target" id="index-0"></span>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">&para;</a></h1>
+<p>Pre-compiled and configured installation packages for pgAdmin 4 are available
+for a number of desktop environments; we recommend using an installer
+whenever possible.</p>
+<p>In a <em>Server Deployment</em>, the pgAdmin application is deployed behind a webserver
+or with the WSGI interface.
+If you install pgAdmin in server mode, you will be prompted to provide a role
+name and pgAdmin password when you initially connect to pgAdmin.  The first
+role registered with pgAdmin will be an administrative user; the
+administrative role can use the pgAdmin <em>User Management</em> dialog to create
+and manage additional pgAdmin user accounts.  When a user authenticates
+with pgAdmin, the pgAdmin tree control displays the server definitions
+associated with that login role.</p>
+<p>In a <em>Desktop Deployment</em>, the pgAdmin application is configured to use the
+desktop runtime environment to host the program on a supported platform.
+Typically, users will install a pre-built package to run pgAdmin in desktop
+mode, but a manual desktop deployment can be installed and though it is more
+difficult to setup, it may be useful for developers interested in understanding
+how pgAdmin works.</p>
+<p>It is also possible to use a <em>Container Deployment</em> of pgAdmin, in which Server
+Mode is pre-configured for security.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_py.html">The config.py File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="desktop_deployment.html">Desktop Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_deployment.html">Server Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="container_deployment.html">Container Deployment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="login.html">Login Dialog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="login.html#recovering-a-lost-password">Recovering a Lost Password</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_management.html">User Management Dialog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="change_user_password.html">Change User Password Dialog</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pre-compiled and configured installation packages are available for
+a number of platforms. These packages should be used by end-users whereever
+possible - the following information is useful for the maintainers of those
+packages and users interested in understanding how pgAdmin works.</p>
+</div>
+<p>The pgAdmin 4 client features a highly-customizable display that features
+drag-and-drop panels that you can arrange to make the best use of your desktop
+environment.</p>
+<p>The tree control provides an elegant overview of the managed servers, and the
+objects that reside on each server. Right-click on a node within the tree control
+to access context-sensitive menus that provide quick access to management tasks
+for the selected object.</p>
+<p>The tabbed browser provide quick access to statistical information about each
+object in the tree control, and pgAdmin tools and utilities (such as the Query
+tool and the debugger). pgAdmin opens additional feature tabs each time you
+access the extended functionality offered by pgAdmin tools; you can open, close,
+and re-arrange feature tabs as needed.</p>
+<p>Use the <em>Preferences</em> dialog to customize the content and behaviour of the pgAdmin
+display.  To open the <em>Preferences</em> dialog, select <em>Preferences</em> from the <em>File</em> menu.</p>
+<p><em>Help</em> buttons in the lower-left corner of each dialog will open the online help
+for the dialog.  You can access additional Postgres help by navigating through
+the <em>Help</em> menu, and selecting the name of the resource that you wish to open.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="menu_bar.html">Menu Bar</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html#the-file-menu">The File Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html#the-object-menu">The Object Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html#the-tools-menu">The Tools Menu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html#the-help-menu">The Help Menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toolbar.html">Toolbar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tabbed_browser.html">Tabbed Browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tree_control.html">Tree Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferences.html">Preferences Dialog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-browser-node">The Browser Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-dashboards-node">The Dashboards Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-debugger-node">The Debugger Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-miscellaneous-node">The Miscellaneous Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-paths-node">The Paths Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-query-tool-node">The Query Tool Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-schema-diff-node">The Schema Diff Node</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html#the-storage-node">The Storage Node</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="keyboard_shortcuts.html">Keyboard Shortcuts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#main-browser-window">Main Browser Window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#dialog-tabs">Dialog Tabs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#property-grid-controls">Property Grid Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#sql-editors">SQL Editors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#query-tool">Query Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#debugger">Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#inner-tab-and-panel-navigation">Inner Tab and Panel Navigation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html#access-key">Access Key</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Before using pgAdmin to manage objects that reside on a server, you must define a
+connection to the server; for more information please see <em>Connecting to a Server</em>
+in the next section.</p>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

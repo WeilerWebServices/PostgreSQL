@@ -1,0 +1,77 @@
+{%extends "base/page.html"%}
+{%block title%}Linux downloads (SUSE){%endblock%}
+{%block contents%}
+
+<h1>Linux downloads (SUSE) <img class="logo" src="/media/img/suse.svg" alt="SUSE Logo" /></h1>
+<p>
+PostgreSQL is available in all SUSE versions by default. However,
+SUSE Linux "snapshots" a specific version of PostgreSQL
+that is then supported throughout the lifetime of that SUSE version.
+</p>
+<a name="zypper"></a><h2>PostgreSQL RPM Repository</h2>
+<p>
+This repository will integrate with your normal systems and patch management,
+and provide automatic updates for PostgreSQL 9.5+ throughout
+the support <a href="/support/versioning/">lifetime</a> of PostgreSQL.
+</p>
+<p>
+The PostgreSQL RPM repository currently supports SUSE Enterprise Linux 12.
+</p>
+<p>
+To use the SUSE RPM repository, please follow these <a href="https://zypp.postgresql.org/howtozypp.php">instructions</a>.
+</p>
+
+<h2>Included in distribution</h2>
+<p>
+RPMs for SUSE Linux and openSUSE are available from the
+<a href="https://build.opensuse.org/" target="_blank">openSUSE Build Service</a>
+in the project <em>server:database:postgresql</em>.
+Platform-specific RPM packages are available for PostgreSQL
+as well as a variety of related software.
+Use the <a href="http://software.opensuse.org/search" target="_blank">search facility</a>
+to find suitable packages. Documentation is also available there.
+</p>
+
+{%include "pages/download/linux/linux_openscg.inc" %}
+
+{%include "pages/download/linux/linux_oneclick.inc" %}
+
+<h3>Platform support</h3>
+
+<p>The installers are tested by EnterpriseDB on the following platforms.
+    They may also work on other variations or versions:</p>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">PostgreSQL Version</th>
+      <th scope="col">64 Bit Platforms</th>
+      <th scope="col">32 Bit Platforms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>10</td>
+      <td>SLES 12.x</td>
+      <td>SLES 12.x</td>
+    </tr>
+    <tr>
+      <td>9.6</td>
+      <td>SLES 12.x</td>
+      <td>SLES 12.x</td>
+    </tr>
+    <tr>
+      <td>9.5</td>
+      <td>SLES 12.x</td>
+      <td>SLES 12.x</td>
+    </tr>
+    <tr>
+      <td>9.4</td>
+      <td>SLES 11.x</td>
+      <td>SLES 11.x</td>
+    </tr>
+  </tbody>
+</table>
+
+{%include "pages/download/linux/linux_source.inc" %}
+{%endblock%}

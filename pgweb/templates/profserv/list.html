@@ -1,0 +1,76 @@
+{%extends "base/page.html"%}
+{%block title%}{{title}}{%endblock%}
+{%block contents%}
+<h1>{{title}} <i class="fa fa-question-circle"></i></h1>
+<p>The following {{whatname}} are registered in {{regionname}}.</p>
+
+{% for s in services %}
+  <h2 class="news">
+    <a href="{{s.url}}" target="_blank">{{ s.org.name }}</a>
+  </h2>
+  <table class="table table-striped profserv-table">
+    <tbody>
+      {% if s.url %}
+         <tr>
+          <th scope="row">Website</th>
+          <td><a href="{{s.url}}" target="_blank">{{s.url}}</a></td>
+         </tr>
+      {% endif %}
+      <tr>
+        <th scope="row">Description</th>
+        <td>{{s.description}}</td>
+      </tr>
+      {% if s.provides_hosting and s.provides_support %}
+        <tr>
+          <th scope="row">Provides</th>
+          <td>Provides both support and hosting.</td>
+        </tr>
+      {% endif %}
+      {%if s.employees %}
+        <tr>
+          <th scope="row">Employees</th>
+          <td>{{s.employees}}</td>
+        </tr>
+      {% endif %}
+      {%if s.locations%}
+        <tr>
+          <th scope="row">Office locations</th>
+          <td>{{s.locations}}</td>
+        </tr>
+      {% endif %}
+      {% if s.hours %}
+        <tr>
+          <th scope="row">Hours</th>
+          <td>{{s.hours}}</td>
+        </tr>
+      {% endif %}
+      {% if s.languages %}
+        <tr>
+          <th scope="row">Languages</th>
+          <td>{{s.languages}}</td>
+        </tr>
+      {% endif %}
+      {% if s.customerexample %}
+        <tr>
+          <th scope="row">Customer example</th>
+          <td>{{s.customerexample}}</td>
+        </tr>
+      {% endif %}
+      {% if s.experience %}
+        <tr>
+          <th scope="row">Experience</th>
+          <td>{{s.experience}}</td>
+        </tr>
+      {% endif %}
+      {%if s.contact%}
+        <tr>
+          <th scope="row">Contact information</th>
+          <td>{{s.contact}}</td>
+        </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <hr />
+{%endfor%}
+
+{%endblock%}

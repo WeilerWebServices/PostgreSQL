@@ -1,0 +1,364 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 19:45:02 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Schema Diff &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/schema_diff.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/schema_diff.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/schema_diff.html">4.18</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/schema_diff.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="pgagent.html" title="pgAgent">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="viewdata_filter.html" title="View/Edit Data Filter">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="developer_tools.html">Developer Tools</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">Schema Diff</a><ul>
+<li><a class="reference internal" href="#the-schema-diff-object-comparison-panel">The Schema Diff Object Comparison Panel</a></li>
+<li><a class="reference internal" href="#schema-diff-ddl-comparison-panel">Schema Diff DDL Comparison Panel</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developer_tools.html">Developer Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="debugger.html">Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query_tool.html">Query Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="editgrid.html">View/Edit Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Schema Diff</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="schema-diff">
+<span id="schema-diff-feature"></span><h1><span class="target" id="index-0"></span>Schema Diff<a class="headerlink" href="#schema-diff" title="Permalink to this headline">&para;</a></h1>
+<p><strong>Schema Diff</strong>&nbsp;is a feature that allows you to compare schema objects between
+two database schemas. Use the <em>Tools</em> menu to access Schema Diff.</p>
+<p>The Schema Diff feature allows you to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Compare and synchronize the database schemas (from source to target).</li>
+<li>Visualize the differences between database schemas.</li>
+<li>List the differences in SQL statement for target schema objects.</li>
+<li>Generate synchronization scripts.</li>
+</ul>
+</div></blockquote>
+<p><strong>Note</strong> - The source and target databases must be of the same major
+version.</p>
+<p>Click on <em>Schema Diff</em> under the <em>Tools</em> menu to open a selection panel. Choose
+the source and target servers, databases, and schemas that will be
+compared. After selecting the objects, click on the <em>Compare</em> button.</p>
+<p>You can open multiple copies of <em>Schema Diff</em> in individual tabs
+simultaneously. To close a copy of Schema Diff, click the&nbsp;<em>X</em>&nbsp;in the
+upper-right hand corner of the tab bar.</p>
+<img alt="schema diff dialog" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/schema_diff_dialog.png"/>
+<p>Use the <a class="reference internal" href="preferences.html#preferences"><span class="std std-ref">Preferences</span></a> dialog to specify if <em>Schema Diff</em>
+should open in a new browser tab. Set <em>Open in new browser tab</em> option to true.</p>
+<p>The <em>Schema Diff</em> panel is divided into two panels; an Object Comparison panel
+and a DDL Comparison panel.</p>
+<div class="section" id="the-schema-diff-object-comparison-panel">
+<h2>The Schema Diff Object Comparison Panel<a class="headerlink" href="#the-schema-diff-object-comparison-panel" title="Permalink to this headline">&para;</a></h2>
+<p>In the object comparison panel, you can select the source and target servers
+of the same major version, databases, and schemas to be compared. You can
+select any server listed under the browser tree whether it is connected or
+disconnected. If you select a server that is not connected then it will
+prompt you for the password before using the server.</p>
+<p>Next, select the databases that will be compared. The databases can be the
+same or different (and within the same server or from different servers).</p>
+<p>Lastly, select the source and target schemas which will be compared.</p>
+<img alt="Schema diff compare button" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/schema_diff_compare_button.png"/>
+<p>After you select servers, databases, and schemas, click on the
+<em>Compare</em> button to obtain the <em>Comparison Result</em>.</p>
+<img alt="Schema diff comparison results" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/schema_diff_comparison_results.png"/>
+<p>Use the drop-down lists of Functions, Materialized Views, Tables,
+Trigger Functions, Procedures, and Views to view the DDL statements of
+all the schema objects.</p>
+<p>In the upper-right hand corner of the object comparison panel is a <em>Filter</em>
+option that you can use to filter the schema objects based on the
+following comparison criteria:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Identical &ndash; If the object is found in both schemas with the same SQL statement, then the comparison result is identical.</li>
+<li>Different &ndash; If the object is found in both schemas but have different SQL statements, then the comparison result is different.</li>
+<li>Source Only &ndash; If the object is found in source schema only and not in target schema, then the comparison result is source only.</li>
+<li>Target Only &ndash; If the object is found in target schema only and not in source schema, then the comparison result is target only.</li>
+</ul>
+</div></blockquote>
+<img alt="Schema diff filter option" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/schema_diff_filter_option.png"/>
+<p>Click on any of the schema objects in the object comparison panel to
+display the DDL Statements of that object in the DDL Comparison panel.</p>
+</div>
+<div class="section" id="schema-diff-ddl-comparison-panel">
+<h2>Schema Diff DDL Comparison Panel<a class="headerlink" href="#schema-diff-ddl-comparison-panel" title="Permalink to this headline">&para;</a></h2>
+<p>The <em>DDL Comparison</em> panel displays three columns:</p>
+<ul class="simple">
+<li>The first column displays the DDL statement of the object from the source schema.</li>
+<li>The second column displays the DDL statement of the object from the target schema.</li>
+<li>The third column displays the difference in the SQL statement of the target schema object.</li>
+</ul>
+<img alt="Schema diff DDL comparison" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/schema_diff_DDL_comparison.png"/>
+<p>You can review the DDL statements of all the schema objects to
+check for the differences in the SQL statements.</p>
+<p>Also, you can generate the SQL script of the differences found in the
+target schema object based on the SQL statement of the source schema
+object. To generate the script, select the checkboxes of the schema
+objects in the object comparison panel and then click on the <em>Generate Script</em>
+button in the upper-right hand corner of the object comparison panel.</p>
+<img alt="Schema diff generate script" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/schema_diff_generate_script.png"/>
+<p>Select the schema objects and click on the <em>Generate Script</em>
+button to open the <em>Query Tool</em> in a new tab, with the difference
+in the SQL statement displayed in the <em>Query Editor</em>.</p>
+<p>If you have clicked on the schema object to check the difference
+generated in the <em>DDL Comparison</em> Panel, and you have not selected the
+checkbox of the schema object, PEM will open the <em>Query Tool</em> in a new
+tab, with the differences in the SQL statements displayed in the <em>Query Editor</em>.</p>
+<p>You can also use the <em>Copy</em> button to copy the difference generated in
+the <em>DDL Comparison</em> panel.</p>
+<img alt="Schema diff generate script query editor" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/schema_diff_generate_script_query_editor.png"/>
+<p>Apply the SQL Statement in the target schema to synchronize the schemas.</p>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

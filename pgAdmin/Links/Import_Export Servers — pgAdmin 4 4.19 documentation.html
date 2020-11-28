@@ -1,0 +1,388 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 19:42:30 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Import/Export Servers &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/import_export_servers.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/import_export_servers.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/import_export_servers.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/import_export_servers.html">4.17</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/import_export_servers.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="managing_cluster_objects.html" title="Managing Cluster Objects">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="connect_error.html" title="Connection Error">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="connecting.html">Connecting To A Server</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">Import/Export Servers</a><ul>
+<li><a class="reference internal" href="#exporting-servers">Exporting Servers</a></li>
+<li><a class="reference internal" href="#importing-servers">Importing Servers</a></li>
+<li><a class="reference internal" href="#json-format">JSON format</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="connecting.html">Connecting To A Server</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="server_group_dialog.html">Server Group Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_dialog.html">Server Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="master_password.html">Master Password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect_to_server.html">Connect to Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connect_error.html">Connection Error</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Import/Export Servers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="import-export-servers">
+<span id="export-import-servers"></span><h1><span class="target" id="index-0"></span>Import/Export Servers<a class="headerlink" href="#import-export-servers" title="Permalink to this headline">&para;</a></h1>
+<p>Server definitions (and their groups) can be exported to a JSON file and
+re-imported to the same or a different system to enable easy pre-configuration
+of pgAdmin. The <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> script is used for this purpose.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To export or import servers, you must use the Python interpreter that
+is normally used to run pgAdmin to ensure that the required Python
+packages are available. In most packages, this can be found in the
+Python Virtual Environment that can be found in the installation
+directory. When using platform-native packages, the system installation
+of Python may be the one used by pgAdmin.</p>
+</div>
+<div class="section" id="exporting-servers">
+<h2>Exporting Servers<a class="headerlink" href="#exporting-servers" title="Permalink to this headline">&para;</a></h2>
+<p>To export the servers defined in an installation, simply invoke <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> with
+the <code class="docutils literal notranslate"><span class="pre">--dump-servers</span></code> command line option, followed by the name (and if required,
+path) to the desired output file. By default, servers owned by the desktop mode
+user will be dumped (<a class="reference external" href="mailto:pgadmin4%40pgadmin.org">pgadmin4<span>@</span>pgadmin<span>.</span>org</a> by default - see the DESKTOP_USER
+setting in <code class="docutils literal notranslate"><span class="pre">config.py</span></code>). This can be overridden with the <code class="docutils literal notranslate"><span class="pre">--user</span></code> command
+line option. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/path/to/python /path/to/setup.py --dump-servers output_file.json
+
+<span class="c1"># or, to specify a non-default user name:</span>
+
+/path/to/python /path/to/setup.py --dump-servers output_file.json --user user@example.com
+</pre></div>
+</div>
+<p>To export only certain servers, use the <code class="docutils literal notranslate"><span class="pre">--servers</span></code> option and list one or
+more server IDs. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/path/to/python /path/to/setup.py --dump-servers output_file.json --server <span class="m">1</span> <span class="m">2</span> <span class="m">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="importing-servers">
+<h2>Importing Servers<a class="headerlink" href="#importing-servers" title="Permalink to this headline">&para;</a></h2>
+<p>To import the servers defined in a JSON file, simply invoke <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> with
+the <code class="docutils literal notranslate"><span class="pre">--load-servers</span></code> command line option, followed by the name (and if required,
+path) of the JSON file containing the server definitions. Servers will be owned
+by the desktop mode user (<a class="reference external" href="mailto:pgadmin4%40pgadmin.org">pgadmin4<span>@</span>pgadmin<span>.</span>org</a> by default - see the DESKTOP_USER
+setting in <code class="docutils literal notranslate"><span class="pre">config.py</span></code>). This can be overridden with the <code class="docutils literal notranslate"><span class="pre">--user</span></code> command
+line option. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/path/to/python /path/to/setup.py --load-servers input_file.json
+
+<span class="c1"># or, to specify a non-default user name to own the new servers:</span>
+
+/path/to/python /path/to/setup.py --load-servers input_file.json --user user@example.com
+</pre></div>
+</div>
+<p>If any Servers are defined with a Server Group that is not already present in
+the configuration database, the required Group will be created.</p>
+</div>
+<div class="section" id="json-format">
+<h2>JSON format<a class="headerlink" href="#json-format" title="Permalink to this headline">&para;</a></h2>
+<p>The JSON file format used when importing or exporting servers is quite
+straightforward and simply contains a list of servers, with a number of
+attributes. The following attributes are required to be present in every server
+definition: Name, Group, Port, Username, SSLMode, MaintenanceDB and one of Host,
+HostAddr or Service.</p>
+<p>Password fields cannot be imported or exported.</p>
+<p>The following example shows both a minimally defined and a fully defined server:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">"Servers"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"1"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"Name"</span><span class="p">:</span> <span class="s2">"Minimally Defined Server"</span><span class="p">,</span>
+            <span class="s2">"Group"</span><span class="p">:</span> <span class="s2">"Server Group 1"</span><span class="p">,</span>
+            <span class="s2">"Port"</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
+            <span class="s2">"Username"</span><span class="p">:</span> <span class="s2">"postgres"</span><span class="p">,</span>
+            <span class="s2">"Host"</span><span class="p">:</span> <span class="s2">"localhost"</span><span class="p">,</span>
+            <span class="s2">"SSLMode"</span><span class="p">:</span> <span class="s2">"prefer"</span><span class="p">,</span>
+            <span class="s2">"MaintenanceDB"</span><span class="p">:</span> <span class="s2">"postgres"</span>
+        <span class="p">},</span>
+        <span class="s2">"2"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"Name: "</span><span class="n">Fully</span> <span class="n">Defined</span> <span class="n">Server</span><span class="s2">",</span>
+            <span class="s2">"Group"</span><span class="p">:</span> <span class="s2">"Server Group 2"</span><span class="p">,</span>
+            <span class="s2">"Host"</span><span class="p">:</span> <span class="s2">"host.domain.com"</span><span class="p">,</span>
+            <span class="s2">"HostAddr"</span><span class="p">:</span> <span class="s2">"192.168.1.2"</span><span class="p">,</span>
+            <span class="s2">"Port"</span><span class="p">:</span> <span class="mi">5432</span><span class="p">,</span>
+            <span class="s2">"MaintenanceDB"</span><span class="p">:</span> <span class="s2">"postgres"</span><span class="p">,</span>
+            <span class="s2">"Username"</span><span class="p">:</span> <span class="s2">"postgres"</span><span class="p">,</span>
+            <span class="s2">"Role"</span><span class="p">:</span> <span class="s2">"my_role_name"</span><span class="p">,</span>
+            <span class="s2">"SSLMode"</span><span class="p">:</span> <span class="s2">"require"</span><span class="p">,</span>
+            <span class="s2">"Comment"</span><span class="p">:</span> <span class="s2">"This server has every option configured in the JSON"</span><span class="p">,</span>
+            <span class="s2">"DBRestriction"</span><span class="p">:</span> <span class="s2">"live_db test_db"</span><span class="p">,</span>
+            <span class="s2">"PassFile"</span><span class="p">:</span> <span class="s2">"/path/to/pgpassfile"</span><span class="p">,</span>
+            <span class="s2">"SSLCert"</span><span class="p">:</span> <span class="s2">"/path/to/sslcert.crt"</span><span class="p">,</span>
+            <span class="s2">"SSLKey"</span><span class="p">:</span> <span class="s2">"/path/to/sslcert.key"</span><span class="p">,</span>
+            <span class="s2">"SSLRootCert"</span><span class="p">:</span> <span class="s2">"/path/to/sslroot.crt"</span><span class="p">,</span>
+            <span class="s2">"SSLCrl"</span><span class="p">:</span> <span class="s2">"/path/to/sslcrl.crl"</span><span class="p">,</span>
+            <span class="s2">"SSLCompression"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"BGColor"</span><span class="p">:</span> <span class="s2">"#ff9900"</span><span class="p">,</span>
+            <span class="s2">"FGColor"</span><span class="p">:</span> <span class="s2">"#000000"</span><span class="p">,</span>
+            <span class="s2">"Service"</span><span class="p">:</span> <span class="s2">"postgresql-10"</span><span class="p">,</span>
+            <span class="s2">"Timeout"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+            <span class="s2">"UseSSHTunnel"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">"TunnelHost"</span><span class="p">:</span> <span class="s2">"192.168.1.253"</span><span class="p">,</span>
+            <span class="s2">"TunnelPort"</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+            <span class="s2">"TunnelUsername"</span><span class="p">:</span> <span class="s2">"username"</span><span class="p">,</span>
+            <span class="s2">"TunnelAuthentication"</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

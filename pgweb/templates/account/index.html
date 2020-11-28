@@ -1,0 +1,91 @@
+{%extends "base/page.html"%}
+{%block title%}Your account{%endblock%}
+{%block contents%}
+<h1>Your account <i class="far fa-address-card"></i></h1>
+<p>
+From this section, you can manage all information on this site connected
+to your PostgreSQL community account. Other than your basic profile
+information, this includes news and events, professional services and
+comments. Note that most of the data you submit to this site needs to be
+approved by a moderator before it's published.
+</p>
+<p>
+To submit a new record, or to edit an existing record, select the
+type of record in the menu on the left.
+</p>
+
+<h2>Permissions model</h2>
+<p>
+News, Events, Products and Professional Services are attached to an
+Organisation. One or more persons can be given permissions to manage
+the data for an organisation. If you do not have permissions for an
+organisation and think you should have, you need to contact the current
+managers for that organisation. You can find a list of organisations
+and managers <a href="orglist/">here</a>.
+</p>
+
+<h2>Migrated data</h2>
+<p>
+For most of the data migrated from the old website has unfortunately not
+been connected to the proper organisations and accounts. If you have any
+data submitted that is not properly connected to you (most likely this
+will be your account not being connected to the proper organisation(s)),
+please contact <a href="webmaster@postgresql.org">webmaster@postgresql.org</a>
+and let us know which objects to connect together.
+</p>
+
+{%if newsarticles or events or organisations or products or profservs %}
+<h2>Submissions awaiting moderation</h2>
+<p>
+You have submitted the following objects that are still waiting moderator
+approval before they are published:
+</p>
+
+{%if newsarticles%}
+<h3>News articles</h3>
+<ul>
+{%for article in newsarticles%}
+<li><a href="/account/news/{{article.id}}/">{{article}}</a></li>
+{%endfor%}
+</ul>
+{%endif%}
+
+{%if events%}
+<h3>Events</h3>
+<ul>
+{%for event in events%}
+<li><a href="/account/events/{{event.id}}/">{{event}}</a></li>
+{%endfor%}
+</ul>
+{%endif%}
+
+{%if organisations%}
+<h3>Organisations</h3>
+<ul>
+{%for org in organisations%}
+<li><a href="/account/organisations/{{org.id}}">{{org}}</a></li>
+{%endfor%}
+</ul>
+{%endif%}
+
+{%if products%}
+<h3>Products</h3>
+<ul>
+{%for product in products%}
+<li><a href="/account/products/{{product.id}}">{{product}}</a></li>
+{%endfor%}
+</ul>
+{%endif%}
+
+{%if profservs%}
+<h3>Professional Services</h3>
+<ul>
+{%for profserv in profservs%}
+<li><a href="/account/services/{{profserv.id}}">{{profserv}}</a></li>
+{%endfor%}
+</ul>
+{%endif%}
+
+{%endif%}
+
+{%endblock%}

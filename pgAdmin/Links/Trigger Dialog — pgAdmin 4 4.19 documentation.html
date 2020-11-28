@@ -1,0 +1,368 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 19:44:31 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Trigger Dialog &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/trigger_dialog.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/trigger_dialog.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/trigger_dialog.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/trigger_dialog.html">4.17</a>
+                     | 
+                    <a  href="/docs/pgadmin4/3.6/trigger_dialog.html">3.6</a>
+                     | 
+                    <a  href="/docs/pgadmin4/2.1/trigger_dialog.html">2.1</a>
+                     | 
+                    <a  href="/docs/pgadmin4/1.6/trigger_dialog.html">1.6</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/trigger_dialog.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="unique_constraint_dialog.html" title="Unique Constraint Dialog">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="table_dialog.html" title="Table Dialog">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="modifying_tables.html">Creating or Modifying a Table</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">Trigger Dialog</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="check_dialog.html">Check Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="column_dialog.html">Column Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="compound_trigger_dialog.html">Compound Trigger Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exclusion_constraint_dialog.html">Exclusion Constraint Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreign_key_dialog.html">Foreign key Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index_dialog.html">Index Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primary_key_dialog.html">Primary key Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rule_dialog.html">Rule Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_dialog.html">Table Dialog</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Trigger Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unique_constraint_dialog.html">Unique Constraint Dialog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="trigger-dialog">
+<span id="id1"></span><h1><span class="target" id="index-0"></span>Trigger Dialog<a class="headerlink" href="#trigger-dialog" title="Permalink to this headline">&para;</a></h1>
+<p>Use the <em>Trigger</em> dialog to create a trigger or modify an existing trigger.  A
+trigger executes a specified function when certain events occur.</p>
+<p>The <em>Trigger</em> dialog organizes the development of a trigger through the
+following dialog tabs: <em>General</em>, <em>Definition</em>, <em>Events</em>, and <em>Code</em>. The <em>SQL</em>
+tab displays the SQL code generated by dialog selections.</p>
+<img alt="Trigger dialog general tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/trigger_general.png"/>
+<p>Use the fields in the <em>General</em> tab to identify the trigger:</p>
+<ul class="simple">
+<li>Use the <em>Name</em> field to add a descriptive name for the trigger. This must be
+distinct from the name of any other trigger for the same table. The name will
+be displayed in the <em>pgAdmin</em> tree control. Note that if multiple triggers of
+the same kind are defined for the same event, they will be fired in
+alphabetical order by name.</li>
+<li>Store notes about the trigger in the <em>Comment</em> field.</li>
+</ul>
+<p>Click the <em>Definition</em> tab to continue.</p>
+<img alt="Trigger dialog definition tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/trigger_definition.png"/>
+<p>Use the fields in the <em>Definition</em> tab to define the trigger:</p>
+<ul class="simple">
+<li>Move the <em>Row trigger?</em> switch to the <em>No</em> position to disassociate the
+trigger from firing on each row in a table. The default is <em>Yes</em>.</li>
+<li>Move the <em>Constraint trigger?</em> switch to the <em>Yes</em> position to specify the
+trigger is a constraint trigger.</li>
+<li>If enabled, move the <em>Deferrable?</em> switch to the <em>Yes</em> position to specify
+the timing of the constraint trigger is deferrable and can be postponed until
+the end of the statement. The default is <em>No</em>.</li>
+<li>If enabled, move the <em>Deferred?</em> switch to the <em>Yes</em> position to specify the
+timing of the constraint trigger is deferred to the end of the statement
+causing the triggering event. The default is <em>No</em>.</li>
+<li>Use the drop-down listbox next to <em>Trigger Function</em> to select a trigger
+function or procedure.</li>
+<li>Use the <em>Arguments</em> field to provide an optional (comma-separated) list of
+arguments to the function when the trigger is executed. The arguments are
+literal string constants.</li>
+</ul>
+<img alt="Trigger enabled in dialog tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/trigger_definition_enabled.png"/>
+<ul class="simple">
+<li><em>Trigger enabled</em> field is available in trigger dialog once the trigger is created.
+You can select one of the four options available.</li>
+</ul>
+<p>Click the <em>Events</em> tab to continue.</p>
+<img alt="Trigger dialog events tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/trigger_events.png"/>
+<p>Use the fields in the <em>Events</em> tab to specify how and when the trigger fires:</p>
+<ul class="simple">
+<li>Use the drop-down listbox next to the <em>Fires</em> fields to determine if the
+trigger fires <em>BEFORE</em> or <em>AFTER</em> a specified event. The default is <em>BEFORE</em>.</li>
+<li>Select the type of event(s) that will invoke the trigger; to select an event
+type, move the switch next to the event to the <em>YES</em> position.  The supported
+event types are <em>INSERT</em>, <em>UPDATE</em>, <em>DELETE</em>, and <em>TRUNCATE</em>.</li>
+<li>Use the <em>When</em> field to provide a boolean condition that will invoke the
+trigger.</li>
+<li>If defining a column-specific trigger, use the <em>Columns</em> field to specify the
+columns or columns that are the target of the trigger.</li>
+</ul>
+<p>Click the <em>Code</em> tab to continue.</p>
+<img alt="Trigger dialog code tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/trigger_code.png"/>
+<p>Use the <em>Code</em> field to specify any additional code that will be invoked when
+the trigger fires.</p>
+<p>Click the <em>SQL</em> tab to continue.</p>
+<p>Your entries in the <em>Trigger</em> dialog generate a SQL command (see an example
+below). Use the <em>SQL</em> tab for review; revisit or switch tabs to make any changes
+to the SQL command.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">&para;</a></h2>
+<p>The following is an example of the sql command generated by user selections in
+the <em>Trigger</em> dialog:</p>
+<img alt="Trigger dialog sql tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/trigger_sql.png"/>
+<p>The example demonstrates creating a trigger named <em>log_update</em>.</p>
+<ul class="simple">
+<li>Click the <em>Info</em> button (i) to access online help.</li>
+<li>Click the <em>Save</em> button to save work.</li>
+<li>Click the <em>Cancel</em> button to exit without saving work.</li>
+<li>Click the <em>Reset</em> button to restore configuration parameters.</li>
+</ul>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

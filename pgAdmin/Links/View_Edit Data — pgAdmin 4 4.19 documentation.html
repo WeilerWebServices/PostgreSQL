@@ -1,0 +1,397 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 19:45:01 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>View/Edit Data &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/editgrid.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/editgrid.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/editgrid.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/editgrid.html">4.17</a>
+                     | 
+                    <a  href="/docs/pgadmin4/3.6/editgrid.html">3.6</a>
+                     | 
+                    <a  href="/docs/pgadmin4/2.1/editgrid.html">2.1</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/editgrid.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="viewdata_filter.html" title="View/Edit Data Filter">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="query_tool_toolbar.html" title="Query Tool Toolbar">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="developer_tools.html">Developer Tools</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">View/Edit Data</a><ul>
+<li><a class="reference internal" href="#the-view-edit-data-toolbar">The View/Edit Data Toolbar</a></li>
+<li><a class="reference internal" href="#the-data-grid">The Data Grid</a></li>
+<li><a class="reference internal" href="#sort-filter-options-dialog">Sort/Filter options dialog</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developer_tools.html">Developer Tools</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="debugger.html">Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query_tool.html">Query Tool</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">View/Edit Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schema_diff.html">Schema Diff</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="view-edit-data">
+<span id="editgrid"></span><h1><span class="target" id="index-0"></span>View/Edit Data<a class="headerlink" href="#view-edit-data" title="Permalink to this headline">&para;</a></h1>
+<p>To view or modify data, right click on a table or view name in the <em>Browser</em>
+tree control.  When the context menu opens, use the <em>View/Edit Data</em> menu to
+specify the number of rows you would like to display in the editor panel.</p>
+<img alt="Edit grid window" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/editgrid.png"/>
+<p>To modify the content of a table, each row in the table must be uniquely
+identifiable. If the table definition does not include an OID or a primary key,
+the displayed data is read only. Note that views cannot be edited; updatable
+views (using rules) are not supported.</p>
+<p>The editor features a toolbar that allows quick access to frequently used
+options, and a work environment divided into two panels:</p>
+<ul class="simple">
+<li>The upper panel displays the SQL command that was used to select the content
+displayed in the lower panel.</li>
+<li>The lower panel (the Data Grid) displays the data selected from the table or
+view.</li>
+</ul>
+<div class="section" id="the-view-edit-data-toolbar">
+<h2>The View/Edit Data Toolbar<a class="headerlink" href="#the-view-edit-data-toolbar" title="Permalink to this headline">&para;</a></h2>
+<p>The <a class="reference internal" href="query_tool.html#query-tool"><span class="std std-ref">Query Tool</span></a> and <a class="reference internal" href="#editgrid"><span class="std std-ref">View/Edit Data</span></a> tools
+are actually different operating modes of the same tool. Some controls will be
+disabled in either mode. Please see
+<a class="reference internal" href="query_tool_toolbar.html#query-tool-toolbar"><span class="std std-ref">The Query Tool Toolbar</span></a> for a description of the
+available controls.</p>
+</div>
+<div class="section" id="the-data-grid">
+<span id="data-grid"></span><h2>The Data Grid<a class="headerlink" href="#the-data-grid" title="Permalink to this headline">&para;</a></h2>
+<p>The top row of the data grid displays the name of each column, the data type,
+and if applicable, the number of characters allowed. A column that is part of
+the primary key will additionally be marked with [PK].</p>
+<p>To modify the displayed data:</p>
+<ul class="simple">
+<li>To change a numeric value within the grid, double-click the value to select
+the field.  Modify the content in the square in which it is displayed.</li>
+<li>To change a non-numeric value within the grid, double-click the content to
+access the edit bubble.  After modifying the contentof the edit bubble, click
+the <em>Ok</em> button to display your changes in the data grid, or <em>Cancel</em> to
+exit the edit bubble without saving.</li>
+</ul>
+<p>To enter a newline character, click Ctrl-Enter or Shift-Enter.  Newline
+formatting is only displayed when the field content is accessed via an edit
+bubble.</p>
+<p>To add a new row to the table, enter data into the last (unnumbered) row of the
+table. As soon as you store the data, the row is assigned a row number, and a
+fresh empty line is added to the data grid.</p>
+<p>To write a SQL NULL to the table, simply leave the field empty. When you store
+the new row, the will server fill in the default value for that column. If you
+store a change to an existing row, the value NULL will explicitly be written.</p>
+<p>To write an empty string to the table, enter the special string &lsquo;&rsquo; (two single
+quotes) in the field. If you want to write a string containing solely two single
+quotes to the table, you need to escape these quotes, by typing &lsquo;&rsquo;</p>
+<p>To delete a row, press the <em>Delete</em> toolbar button.  A popup will open, asking
+you to confirm the deletion.</p>
+<p>To commit the changes to the server, select the <em>Save Data</em> toolbar button.</p>
+<p><strong>Geometry Data Viewer</strong></p>
+<p>If PostGIS is installed, you can view GIS objects in a map by selecting row(s)
+and clicking the &lsquo;View Geometry&rsquo; button in the column. If no rows are selected,
+the entire data set will be rendered:</p>
+<img alt="Geometry Viewer Button" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/geometry_viewer.png"/>
+<p>You can adjust the layout by dragging the title of the panel. To view the
+properties of the geometries directly in map, just click the specific geometry:</p>
+<img alt="Geometry Viewer Property Table" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/geometry_viewer_property_table.png"/>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li><em>Supported data types:</em> The Geometry Viewer supports 2D and 3DM geometries in
+EWKB format including <cite>Point, LineString, Polygon MultiPoint, MultiLineString,
+MultiPolygon and GeometryCollection</cite>.</li>
+<li><em>SRIDs:</em> If there are geometries with different SRIDs in the same column, the
+viewer will render geometries with the same SRID in the map. If SRID=4326 the
+OSM tile layer will be added into the map.</li>
+<li><em>Data size:</em> For performance reasons, the viewer will render no more than
+100000 geometries, totaling up to 20MB.</li>
+<li><em>Internet access:</em> An internet connection is required for the Geometry Viewer
+to function correctly.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="sort-filter-options-dialog">
+<h2>Sort/Filter options dialog<a class="headerlink" href="#sort-filter-options-dialog" title="Permalink to this headline">&para;</a></h2>
+<p>You can access <em>Sort/Filter options dialog</em> by clicking on Sort/Filter button.
+This allows you to specify an SQL Filter to limit the data displayed and data
+sorting options in the edit grid window:</p>
+<img alt="Edit grid filter dialog window" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/editgrid_filter_dialog.png"/>
+<ul class="simple">
+<li>Use <em>SQL Filter</em> to provide SQL filtering criteria. These will be added to
+the &ldquo;WHERE&rdquo; clause of the query used to retrieve the data. For example,
+you might enter:</li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">25</span> <span class="k">AND</span> <span class="n">created</span> <span class="o">&gt;</span> <span class="s1">'2018-01-01'</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Use <em>Data Sorting</em> to sort the data in the output grid</li>
+</ul>
+<p>To add new column(s) in data sorting grid, click on the [+] icon.</p>
+<ul class="simple">
+<li>Use the drop-down <em>Column</em> to select the column you want to sort.</li>
+<li>Use the drop-down <em>Order</em> to select the sort order for the column.</li>
+</ul>
+<p>To delete a row from the grid, click the trash icon.</p>
+<ul class="simple">
+<li>Click the <em>Help</em> button (?) to access online help.</li>
+<li>Click the <em>Ok</em> button to save work.</li>
+<li>Click the <em>Close</em> button to discard current changes and close the dialog.</li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="viewdata_filter.html">View/Edit Data Filter</a></li>
+</ul>
+</div>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

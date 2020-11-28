@@ -1,0 +1,52 @@
+{%extends "admin/base_site.html"%}
+
+{%block breadcrumbs%}
+<div class="breadcrumbs"><a href="/admin/">Home</a> &rsaquo; Pending</div>
+{%endblock%}
+
+{% block bodyclass %}change-list{% endblock %}
+{% block coltype %}flex{% endblock %}
+
+{%block content%}
+<h1>Purge URL from Varnish</h1>
+
+<div id="content-main">
+ <form method="POST" action=".">{% csrf_token %}
+   <table border="0" cellspacing="0">
+     <tr>
+       <td>URL (regex, ^ is auto-added):</td>
+       <td><input type="text" name="url"></td>
+     </tr>
+     <tr>
+       <td>Full expression:</td>
+       <td><input type="text" name="expr"></td>
+     </tr>
+     <tr>
+       <td>XKey:</td>
+       <td><input type="text" name="xkey"></td>
+     </tr>
+   </table>
+  <input type="submit" value="Purge" />
+ </form>
+
+{%if latest_purges %}
+  <div class="module">
+    <table summary="Latest purges" width="100%">
+      <caption><a class="section">Latest purges</a></caption>
+      <tr class="row2">
+	<th width="150">Queued</th>
+	<th width="150">Delivered</th>
+	<th width="150">Frontend</th>
+	<th width="30">Type</th>
+	<th>Expression</th>
+      </tr>
+      {%for p in latest_purges%}
+      <tr class="row{%cycle '1' '2'%}">
+	{%for c in p%}<td>{{c|default:""}}</td>{%endfor%}
+      </tr>
+      {%endfor%}
+    </table>
+  </div>
+{%endif%}
+</div>
+{%endblock%}

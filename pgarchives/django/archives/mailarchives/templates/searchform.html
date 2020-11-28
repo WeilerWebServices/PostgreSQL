@@ -1,0 +1,24 @@
+<h3>Search the Archives</h3>
+
+<form method="get" action="/search/">
+  <input type="hidden" name="m" value="1">
+  {%if searchform_listname%} <input type="hidden" name="ln" value="{{searchform_listname}}"/>{%endif%}
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" name="q" value="{{query}}" class="form-control" placeholder="Search the archives for ...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </span>
+      </div><!-- /input-group -->
+      <div class="input-group">
+        <small class="form-text text-muted">(enter a message-id to go directly to that message)</small>
+      </div>
+      <div class="input-group">
+        <a href="https://www.postgresql.org/search/?m=1{%if searchform_listname%}&amp;ln={{searchform_listname}}{%endif%}">Advanced Search</a>
+      </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+</form>

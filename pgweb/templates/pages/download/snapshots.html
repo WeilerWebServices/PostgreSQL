@@ -1,0 +1,82 @@
+{%extends "base/page.html"%}
+{%block title%}Development snapshots (unstable){%endblock%}
+{%block contents%}
+
+<h1>Beta/RC Releases and Development snapshots (unstable) <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo" /></h1>
+
+<p>
+Beta and Release Candidate packages are built prior to the release of
+new major versions of PostgreSQL. They are not built continually.
+</p>
+
+<p>
+Development snapshots are built from the latest source code and
+beta/rc versions that the developers are working on.
+These are 'bleeding edge' versions of PostgreSQL and
+<font color="red"><strong>should not be used in production systems</strong></font>
+as they have had little or no testing or quality control.
+</p>
+
+<p>
+The latest development version of the documentation is also
+<a href="/docs/devel/index.html">available online</a>.
+</p>
+
+<h2>Source code</h2>
+
+<p>
+Beta and Release Candidate tarballs are <a href="/ftp/source/">made available
+alongside</a> the release tarballs during the final phases of the development
+cycle of new major versions of PostgreSQL.
+</p>
+
+<p>
+Source code tarballs are built automatically every night on the official
+PostgreSQL development server. The
+<a href="/ftp/snapshot/dev/">development snapshot</a> is taken from the
+head of the git repository, and includes the new features being worked
+on for the next release. There are also "branch tip" snapshots built from
+all supported <a href="/ftp/snapshot/">stable branches</a>, which contains
+all bugfixes that are scheduled for the next release.
+</p>
+
+<h2>Installers</h2>
+<p>
+Installers for Windows and Mac are available <a
+href="http://www.enterprisedb.com/products-services-training/pgdevdownload">
+here</a> (offsite link). These installers also include pgAdmin and are
+published by EnterpriseDB.
+</p>
+
+<h2>Red Hat, CentOS, Fedora and Scientific Linux</h2>
+<p>
+RPMs for Red Hat, CentOS, Fedora and Scientific Linux are available from the
+<a href="http://yum.postgresql.org/">PostgreSQL Yum repository</a>.
+</p>
+<p>
+To setup the repository for these versions, follow the same instructions
+as for the <a href="/download/linux/redhat/">normal</a> yum repository on these
+platforms.
+</p>
+
+<p>
+Typically only Beta and Release Candidate packages are available in the
+Yum repository.
+</p>
+
+<h2>Debian, Ubuntu Linux</h2>
+<p>
+DEBs for Debian and Ubuntu are available from the
+<a href="https://apt.postgresql.org">PostgreSQL APT Repository</a>
+repository.
+</p>
+<p>
+To setup the repository for these distributions, follow the instructions
+on <a href="/download/linux/debian/">Linux Downloads (Debian)</a> or <a href="/download/linux/ubuntu/">Linux Downloads (Ubuntu)</a>.
+</p>
+<p>
+Typically only Beta and Release Candidate packages are available in
+the PostgreSQL APT repository.
+</p>
+
+{%endblock%}

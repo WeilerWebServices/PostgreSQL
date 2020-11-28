@@ -1,0 +1,111 @@
+{%extends "base/page.html"%}
+{%block title%}Downloads{%endblock%}
+{%block contents%}
+
+<h1>Downloads <i class="fa fa-download"></i></h1>
+
+<h2>PostgreSQL Core Distribution</h2>
+
+<p>
+The core of the PostgreSQL object-relational database management system
+is available in several source and binary formats.
+</p>
+
+<h3>Binary packages</h3>
+
+<p>
+Pre-built binary packages are available for a number of different operating
+systems:
+</p>
+<ul>
+ <li>BSD
+  <ul>
+   <li><a href="/download/freebsd/">FreeBSD</a></li>
+   <li><a href="/download/openbsd/">OpenBSD</a></li>
+  </ul>
+ </li>
+ <li>Linux
+  <ul>
+    <li>
+      <a href="/download/linux/redhat/">Red Hat</a> family Linux (including <a href="/download/linux/redhat/">CentOS</a>/<a href="/download/linux/redhat/">Fedora</a>/<a href="/download/linux/redhat/">Scientific/Oracle</a> variants)
+    </li>
+    <li><a href="/download/linux/debian/">Debian</a> GNU/Linux and derivatives</li>
+    <li><a href="/download/linux/ubuntu/">Ubuntu</a> Linux and derivatives</li>
+    <li><a href="/download/linux/suse/">SUSE</a> and <a href="/download/linux/suse/">openSUSE</a></li>
+    <li><a href="/download/linux/">Other</a> Linux</li>
+  </ul>
+ </li>
+ <li><a href="/download/macosx/">macOS</a></li>
+ <li><a href="/download/solaris/">Solaris</a></li>
+ <li><a href="/download/windows/">Windows</a></li>
+</ul>
+
+<h3>Source code</h3>
+
+<p>
+The source code can be found in the main <a href="/ftp/source/">file browser</a>
+or you can access the source control repository directly
+at <a href="https://git.postgresql.org/gitweb/?p=postgresql.git;a=summary" target="_blank">git.postgresql.org</a>.
+Instructions for building from source can be found in the
+<a href="/docs/current/installation.html">documentation</a>.
+</p>
+
+<h3>Beta/RC Releases and development snapshots (unstable)</h3>
+
+<p>
+There are source code and binary <a href="/download/snapshots/">packages</a>
+of beta and release candidates, and of the current development code available
+for testing and evaluation of new features. Note that these builds should
+be used <strong>for testing purposes only</strong>, and not for production systems.
+</p>
+
+<h2>3rd party distributions</h2>
+
+<h3>Machine Learning and Data Visualization with PostgreSQL</h3>
+<p>
+  <a href="https://www.2ndquadrant.com/en/resources/2uda/">Download 2UDA</a>
+  for Windows, macOS, and Linux - certified by 2ndQuadrant for all supported
+  versions of PostgreSQL.
+</p>
+<p>
+  2ndQuadrant Unified Data Analytics (2UDA) is a data analytics application
+  suite that unifies databases, machine learning, data mining, and
+  visualization. The application can be installed using a user-friendly,
+  one-click desktop installer. 2UDA builds on the capabilities of Orange, an
+  open source machine learning and data visualization tool, by integrating it
+  with the PostgreSQL database.
+</p>
+
+{% comment %}
+<h3>PostgreSQL and Hadoop Integration</h3>
+<p>
+<a href="http://www.bigsql.org/se/">BigSQL</a> provides
+a developer friendly bundle of tools for the data guru focused
+on analytics. This bundle combines Postgres and Hadoop through the
+<a href="http://www.hadoopfdw.org">HadoopFDW</a> to allow for
+simplified analysis of data using included and integrated analytics
+tools such as HBase, Hive, Pig, DataFu, Flume, Sqoop and others.
+</p>
+{% endcomment %}
+
+<h3>Ready to run stacks</h3>
+<p>
+'LAPP', 'MAPP' and 'WAPP' (Linux/Mac/Windows + Apache + PHP + PostgreSQL)
+stacks are available from
+<a href="http://bitnami.org/tag/postgresql">BitNami</a>.
+</p>
+
+<h2>Additional Software</h2>
+
+<h3>Software Catalogue</h3>
+
+<p>There is much software available that is not bundled with PostgreSQL. The <a href="/download/product-categories">Software
+Catalogue</a> offers a listing of many commercial and Open Source applications, interfaces and extensions to PostgreSQL
+that you may find useful.</p>
+
+<p>If you wish to have your product listed in the catalogue, please fill out this <a href="/account/products/new/">form</a>.</p>
+
+<h2>File Browser</h2>
+<p>You can download most of the software we publish from a mirror site using our <a href="/ftp/">File Browser</a>.</p>
+
+{%endblock%}

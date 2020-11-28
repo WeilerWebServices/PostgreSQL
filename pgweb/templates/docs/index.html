@@ -1,0 +1,42 @@
+{%extends "base/page.html"%}
+{%block title%}Documentation{%endblock%}
+{%block contents%}
+
+  <div class="row">
+    <div class="col-md-9">
+      <section>
+        <h1>Documentation <i class="far fa-file-alt"></i></h1>
+      </section>
+      <p>This section contains <a href="/docs/manuals/">current</a>
+      and <a href="/docs/manuals/archive/">archived</a> manuals for PostgreSQL users. You can read the <a href="/docs/current/release.html">release notes</a>, and view a listing of <a href="/docs/books/">books</a>
+      written about PostgreSQL.</p>
+    </div>
+    <div class="col-md-3">
+      <section>
+        <h2>Online Manuals</h2>
+      </section>
+      <dl>
+        <dd>
+          <ul>
+            {% for version in versions %}
+              <li>
+                <a href="/docs/{{ version.numtree }}/index.html">{{ version.treestring }}</a>
+              </li>
+            {%endfor%}
+          </ul>
+        </dd>
+        <dt>Translated Manuals</dt>
+        <dd>
+            <ul>
+              <li><a href="http://www.postgres.cn/docs" target="_blank">Chinese</a></li>
+              <li><a href="http://docs.postgresql.fr" target="_blank">French</a></li>
+              <li><a href="http://www.postgresql.jp/document/" target="_blank">Japanese</a></li>
+              <li><a href="https://postgrespro.ru/docs/postgresql" target="_blank">Russian</a></li>
+            </ul>
+        </dd>
+        <dd><p></p><a href="/docs/manuals/">More manuals</a></dd>
+      </dl>
+    </div>
+  </div>
+
+{%endblock%}

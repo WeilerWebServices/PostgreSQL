@@ -1,0 +1,732 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 19:41:13 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Keyboard Shortcuts &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/keyboard_shortcuts.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/keyboard_shortcuts.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/keyboard_shortcuts.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/keyboard_shortcuts.html">4.17</a>
+                     | 
+                    <a  href="/docs/pgadmin4/3.6/keyboard_shortcuts.html">3.6</a>
+                     | 
+                    <a  href="/docs/pgadmin4/2.1/keyboard_shortcuts.html">2.1</a>
+                     | 
+                    <a  href="/docs/pgadmin4/1.6/keyboard_shortcuts.html">1.6</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/keyboard_shortcuts.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="connecting.html" title="Connecting To A Server">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="preferences.html" title="Preferences Dialog">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="getting_started.html">Getting Started</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">Keyboard Shortcuts</a><ul>
+<li><a class="reference internal" href="#main-browser-window">Main Browser Window</a></li>
+<li><a class="reference internal" href="#dialog-tabs">Dialog Tabs</a></li>
+<li><a class="reference internal" href="#property-grid-controls">Property Grid Controls</a></li>
+<li><a class="reference internal" href="#sql-editors">SQL Editors</a></li>
+<li><a class="reference internal" href="#query-tool">Query Tool</a></li>
+<li><a class="reference internal" href="#debugger">Debugger</a></li>
+<li><a class="reference internal" href="#inner-tab-and-panel-navigation">Inner Tab and Panel Navigation</a></li>
+<li><a class="reference internal" href="#access-key">Access Key</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">Login Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html">User Management Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_user_password.html">Change User Password Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html">Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbar.html">Toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabbed_browser.html">Tabbed Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_control.html">Tree Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html">Preferences Dialog</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="keyboard-shortcuts">
+<h1><span class="target" id="index-0"></span>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">&para;</a></h1>
+<p>Keyboard shortcuts are provided in pgAdmin to allow easy access to specific
+functions. Alternate shortcuts can be configured through File &gt; Preferences if
+desired.˝</p>
+<div class="section" id="main-browser-window">
+<h2>Main Browser Window<a class="headerlink" href="#main-browser-window" title="Permalink to this headline">&para;</a></h2>
+<p>When using main browser window, the following keyboard shortcuts are available:</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="40%"></col>
+<col width="60%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut for all platforms</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Alt+Shift+F</td>
+<td>Open the File menu</td>
+</tr>
+<tr class="row-odd"><td>Alt+Shift+O</td>
+<td>Open the Object menu</td>
+</tr>
+<tr class="row-even"><td>Alt+Shift+L</td>
+<td>Open the Tools menu</td>
+</tr>
+<tr class="row-odd"><td>Alt+Shift+H</td>
+<td>Open the Help menu</td>
+</tr>
+<tr class="row-even"><td>Alt+Shift+B</td>
+<td>Focus the browser tree</td>
+</tr>
+<tr class="row-odd"><td>Alt+Shift+[</td>
+<td>Move tabbed panel backward</td>
+</tr>
+<tr class="row-even"><td>Alt+Shift+]</td>
+<td>Move tabbed panel forward</td>
+</tr>
+<tr class="row-odd"><td>Alt+Shift+Q</td>
+<td>Open the Query Tool in the current database</td>
+</tr>
+<tr class="row-even"><td>Alt+Shift+V</td>
+<td>View Data in the selected table/view</td>
+</tr>
+<tr class="row-odd"><td>Alt+Shift+C</td>
+<td>Open the context menu</td>
+</tr>
+<tr class="row-even"><td>Alt+Shift+N</td>
+<td>Create an object</td>
+</tr>
+<tr class="row-odd"><td>Alt+Shift+E</td>
+<td>Edit object properties</td>
+</tr>
+<tr class="row-even"><td>Alt+Shift+D</td>
+<td>Delete the object</td>
+</tr>
+<tr class="row-odd"><td>Alt+Shift+G</td>
+<td>Direct debugging</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dialog-tabs">
+<h2>Dialog Tabs<a class="headerlink" href="#dialog-tabs" title="Permalink to this headline">&para;</a></h2>
+<p>Use the shortcuts below to navigate the tabsets on dialogs:</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="40%"></col>
+<col width="60%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut for all platforms</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Control+Shift+[</td>
+<td>Dialog tab backward</td>
+</tr>
+<tr class="row-odd"><td>Control+Shift+]</td>
+<td>Dialog tab forward</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="property-grid-controls">
+<h2>Property Grid Controls<a class="headerlink" href="#property-grid-controls" title="Permalink to this headline">&para;</a></h2>
+<p>Use the shortcuts below when working with property grid controls:</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="40%"></col>
+<col width="60%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut for all platforms</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Control+Shift+A</td>
+<td>Add row in Grid</td>
+</tr>
+<tr class="row-odd"><td>Tab</td>
+<td>Move focus to the next control</td>
+</tr>
+<tr class="row-even"><td>Shift+Tab</td>
+<td>Move focus to the previous control</td>
+</tr>
+<tr class="row-odd"><td>Return</td>
+<td>Pick the selected an item in a combo box</td>
+</tr>
+<tr class="row-even"><td>Control+Shift+A</td>
+<td>Add row in Grid</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sql-editors">
+<h2>SQL Editors<a class="headerlink" href="#sql-editors" title="Permalink to this headline">&para;</a></h2>
+<p>When using the syntax-highlighting SQL editors, the following shortcuts are available:</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="29%"></col>
+<col width="29%"></col>
+<col width="43%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut (Windows/Linux)</th>
+<th class="head">Shortcut (Mac)</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Alt + Left</td>
+<td>Option + Left</td>
+<td>Move to the beginning of the line</td>
+</tr>
+<tr class="row-odd"><td>Alt + Right</td>
+<td>Option + Right</td>
+<td>Move to the end of the line</td>
+</tr>
+<tr class="row-even"><td>Ctrl + Alt + Left</td>
+<td>Cmd + Option + Left</td>
+<td>Move left one word</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + Alt + Right</td>
+<td>Cmd + Option + Right</td>
+<td>Move right one word</td>
+</tr>
+<tr class="row-even"><td>Ctrl + /</td>
+<td>Cmd + /</td>
+<td>Comment selected code (Inline)</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + .</td>
+<td>Cmd + .</td>
+<td>Uncomment selected code (Inline)</td>
+</tr>
+<tr class="row-even"><td>Ctrl + Shift + /</td>
+<td>Cmd + Shift + /</td>
+<td>Comment/Uncomment code (Block)</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + a</td>
+<td>Cmd + a</td>
+<td>Select all</td>
+</tr>
+<tr class="row-even"><td>Ctrl + c</td>
+<td>Cmd + c</td>
+<td>Copy selected text to the clipboard</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + r</td>
+<td>Cmd + r</td>
+<td>Redo last edit un-done</td>
+</tr>
+<tr class="row-even"><td>Ctrl + v</td>
+<td>Cmd + v</td>
+<td>Paste text from the clipboard</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + z</td>
+<td>Cmd + z</td>
+<td>Undo last edit</td>
+</tr>
+<tr class="row-even"><td>Tab</td>
+<td>Tab</td>
+<td>Indent selected text</td>
+</tr>
+<tr class="row-odd"><td>Shift + Tab</td>
+<td>Shift + Tab</td>
+<td>Un-indent selected text</td>
+</tr>
+<tr class="row-even"><td>Alt + g</td>
+<td>Option + g</td>
+<td>Jump (to line:column)</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + Space</td>
+<td>Ctrl + Space</td>
+<td>Auto-complete</td>
+</tr>
+<tr class="row-even"><td>Ctrl + f</td>
+<td>Cmd + f</td>
+<td>Find</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + g</td>
+<td>Cmd + g</td>
+<td>Find next</td>
+</tr>
+<tr class="row-even"><td>Ctrl + Shift + g</td>
+<td>Cmd + Shift + g</td>
+<td>Find previous</td>
+</tr>
+<tr class="row-odd"><td>Ctrl + Shift + f</td>
+<td>Cmd + Shift + f</td>
+<td>Replace</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="query-tool">
+<h2>Query Tool<a class="headerlink" href="#query-tool" title="Permalink to this headline">&para;</a></h2>
+<p>When using the Query Tool, the following shortcuts are available:</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="29%"></col>
+<col width="29%"></col>
+<col width="43%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut (Windows/Linux)</th>
+<th class="head">Shortcut (Mac)</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>F5</td>
+<td>F5</td>
+<td>Execute query</td>
+</tr>
+<tr class="row-odd"><td>F6</td>
+<td>F6</td>
+<td>Save data changes</td>
+</tr>
+<tr class="row-even"><td>F7</td>
+<td>F7</td>
+<td>EXPLAIN query</td>
+</tr>
+<tr class="row-odd"><td>Shift + F7</td>
+<td>Shift + F7</td>
+<td>EXPLAIN ANALYZE query</td>
+</tr>
+<tr class="row-even"><td>F8</td>
+<td>F8</td>
+<td>Execute query to CSV file</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + o</td>
+<td>&lt;accesskey&gt; + o</td>
+<td>Open file</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + s</td>
+<td>&lt;accesskey&gt; + s</td>
+<td>Save file</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + n</td>
+<td>&lt;accesskey&gt; + n</td>
+<td>Find option drop down</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + c</td>
+<td>&lt;accesskey&gt; + c</td>
+<td>Copy row(s)</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + p</td>
+<td>&lt;accesskey&gt; + p</td>
+<td>Paste row(s)</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + d</td>
+<td>&lt;accesskey&gt; + d</td>
+<td>Delete row(s)</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + f</td>
+<td>&lt;accesskey&gt; + f</td>
+<td>Filter dialog</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + i</td>
+<td>&lt;accesskey&gt; + i</td>
+<td>Filter options drop down</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + r</td>
+<td>&lt;accesskey&gt; + r</td>
+<td>Row limit</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + q</td>
+<td>&lt;accesskey&gt; + q</td>
+<td>Cancel query</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + l</td>
+<td>&lt;accesskey&gt; + l</td>
+<td>Clear option drop down</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + x</td>
+<td>&lt;accesskey&gt; + x</td>
+<td>Execute option drop down</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + t</td>
+<td>&lt;accesskey&gt; + t</td>
+<td>Display connection status</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + y</td>
+<td>&lt;accesskey&gt; + y</td>
+<td>Copy SQL on history panel</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="debugger">
+<h2>Debugger<a class="headerlink" href="#debugger" title="Permalink to this headline">&para;</a></h2>
+<p>When using the Debugger, the following shortcuts are available:</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="29%"></col>
+<col width="29%"></col>
+<col width="43%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut (Windows/Linux)</th>
+<th class="head">Shortcut (Mac)</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&lt;accesskey&gt; + i</td>
+<td>&lt;accesskey&gt; + i</td>
+<td>Step in</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + o</td>
+<td>&lt;accesskey&gt; + o</td>
+<td>Step over</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + c</td>
+<td>&lt;accesskey&gt; + c</td>
+<td>Continue/Restart</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + t</td>
+<td>&lt;accesskey&gt; + t</td>
+<td>Toggle breakpoint</td>
+</tr>
+<tr class="row-even"><td>&lt;accesskey&gt; + x</td>
+<td>&lt;accesskey&gt; + x</td>
+<td>Clear all breakpoints</td>
+</tr>
+<tr class="row-odd"><td>&lt;accesskey&gt; + s</td>
+<td>&lt;accesskey&gt; + s</td>
+<td>Stop</td>
+</tr>
+<tr class="row-even"><td>Alt + Shift + q</td>
+<td>Option + Shift + q</td>
+<td>Enter or Edit values in Grid</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="inner-tab-and-panel-navigation">
+<h2>Inner Tab and Panel Navigation<a class="headerlink" href="#inner-tab-and-panel-navigation" title="Permalink to this headline">&para;</a></h2>
+<p>When using the Query Tool and Debugger, the following shortcuts are available
+for inner panel navigation:</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="29%"></col>
+<col width="29%"></col>
+<col width="43%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Shortcut (Windows/Linux)</th>
+<th class="head">Shortcut (Mac)</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Alt + Shift + ]</td>
+<td>Alt + Shift + ]</td>
+<td>Move to next tab within a panel</td>
+</tr>
+<tr class="row-odd"><td>Alt + Shift + [</td>
+<td>Alt + Shift + [</td>
+<td>Move to previous tab within a panel</td>
+</tr>
+<tr class="row-even"><td>Alt + Shift + Tab</td>
+<td>Alt + Shift + Tab</td>
+<td>Move between inner panels</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="access-key">
+<h2>Access Key<a class="headerlink" href="#access-key" title="Permalink to this headline">&para;</a></h2>
+<p>&lt;accesskey&gt; is browser and platform dependant. The following table lists the
+default access keys for supported browsers.</p>
+<table border="1" class="longtable colwidths-given docutils">
+<colgroup>
+<col width="40%"></col>
+<col width="20%"></col>
+<col width="20%"></col>
+<col width="20%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">Windows</th>
+<th class="head">Linux</th>
+<th class="head">Mac</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Internet Explorer</td>
+<td>Alt</td>
+<td>Alt</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Chrome</td>
+<td>Alt</td>
+<td>Alt</td>
+<td>Ctrl + Option</td>
+</tr>
+<tr class="row-even"><td>Firefox</td>
+<td>Alt + Shift</td>
+<td>Alt + Shift</td>
+<td>Ctrl + Option</td>
+</tr>
+<tr class="row-odd"><td>Safari</td>
+<td>Alt</td>
+<td>&nbsp;</td>
+<td>Ctrl + Option</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

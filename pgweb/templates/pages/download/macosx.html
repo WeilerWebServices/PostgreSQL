@@ -1,0 +1,159 @@
+{%extends "base/page.html"%}
+{%block title%}macOS packages{%endblock%}
+{%block contents%}
+
+<h1><span class="text-lowercase">mac</span>OS packages <img class="logo" src="/media/img/apple.png" alt="Apple Logo" /></h1>
+<p>
+PostgreSQL is the default database on macOS Server as of OS X Server version 10.7.
+macOS without the macOS Server add-on installed includes only the PostgreSQL
+libpq shared library.
+</p>
+<p>
+macOS Server 10.12 ships with PostgreSQL 9.4. Minor updates are provided
+by Apple, but not necessarily right after a new PostgreSQL minor release.
+</p>
+<p>
+There are several other installers available for PostgreSQL on macOS,
+which is the recommended way to install.
+</p>
+
+<h2>Interactive installer by EnterpriseDB</h2>
+
+<p>
+<a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads"> Download the installer</a>
+certified by EnterpriseDB for all supported PostgreSQL versions.
+</p>
+
+<p>
+This installer includes the PostgreSQL server, pgAdmin; a graphical tool for managing and developing
+your databases, and StackBuilder; a package manager that can be used to download and install
+additional PostgreSQL tools and drivers. Stackbuilder includes management,
+integration, migration, replication, geospatial, connectors and other tools.
+</p>
+
+<p>
+This installer can run in graphical, command line, or silent install modes.
+</p>
+
+<p>
+The installer is designed to be a straightforward, fast way to get up and running with
+PostgreSQL on macOS.
+</p>
+
+<p>
+<em>Advanced users</em> can also download a
+<a href="https://www.enterprisedb.com/download-postgresql-binaries">zip archive</a>
+of the binaries, without the installer.
+This download is intended for users who wish to include PostgreSQL as part of another application installer.
+</p>
+
+<h3>Platform support</h3>
+
+<p>
+  The installers are tested by EnterpriseDB on the following platforms.
+  They will generally work on newer versions of macOS as well:
+</p>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">PostgreSQL Version</th>
+      <th scope="col">64-bit macOS Platforms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>12</td>
+      <td>10.12 - 10.14</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>10.12 - 10.14</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>10.10 - 10.12</td>
+    </tr>
+    <tr>
+      <td>9.6</td>
+      <td>10.10 - 10.12</td>
+    </tr>
+    <tr>
+      <td>9.5</td>
+      <td>10.8 - 10.10</td>
+    </tr>
+    <tr>
+      <td>9.4</td>
+      <td>10.6 - 10.9</td>
+    </tr>
+  </tbody>
+</table>
+
+{% comment %}
+<h2>Graphical installer by BigSQL</h2>
+
+<p>
+<a href="https://www.bigsql.org/postgresql/installers.jsp">Download</a> the
+macOS installer from BigSQL for all supported versions.
+</p>
+
+<p>
+This distribution includes the PostgreSQL server, a graphical component manager,
+command line and graphical tools for managing databases, plus many
+open source community components. Integrated components include web
+and desktop developer tools, geospatial, provisioning &amp; management,
+compatibility &amp; migration, backup/restore,
+and integration with external databases (Cassandra, Oracle, SQL Server, Hadoop),
+and procedural languages (Python, Perl, Java, and TCL).
+</p>
+{% endcomment %}
+
+<h2>Postgres.app</h2>
+<p>
+<a href="http://postgresapp.com">Postgres.app</a> is a simple, native macOS app that runs in the menubar without the need of an installer. Open the app, and you have a PostgreSQL server
+ready and awaiting new connections. Close the app, and the server shuts down.
+</p>
+
+<h2>Fink</h2>
+
+<p>
+PostgreSQL packages are available for macOS from the
+<a href="http://www.finkproject.org/">Fink Project</a>.
+Please see the Fink documentation for information on how to install packages.
+</p>
+
+<p>
+A list of
+<a href="http://pdb.finkproject.org/pdb/browse.php?summary=postgresql">PostgreSQL packages</a>
+can be found using the package search tool on the Fink website.
+</p>
+
+<h2>MacPorts</h2>
+
+<p>
+PostgreSQL packages are also available for macOS from the
+<a href="http://www.macports.org/">MacPorts Project</a>. Please see the
+MacPorts documentation for information on how to install ports.
+</p>
+
+<p>
+A list of
+<a href="http://www.macports.org/ports.php?by=name&substr=postgresql">PostgreSQL packages</a>
+can be found using the portfiles search tool on the MacPorts website.
+</p>
+
+<h2>Homebrew</h2>
+
+<p>
+PostgreSQL can also be installed on macOS
+using <a href="http://brew.sh">Homebrew</a>. Please see the Homebrew
+documentation for information on how to install packages.
+</p>
+
+<p>
+A list
+of <a href="https://formulae.brew.sh/formula/postgresql">PostgreSQL
+packages</a> can be found using the Braumeister search tool.
+</p>
+
+{%endblock%}

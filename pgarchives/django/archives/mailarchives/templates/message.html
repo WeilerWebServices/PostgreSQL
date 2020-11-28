@@ -1,0 +1,9 @@
+{%extends "page.html"%}
+{%block title%}{%if not msg.hiddenstatus%}{{msg.subject}}{%endif%}{%endblock%}
+
+{%block contents%}
+{%if not msg.hiddenstatus%}
+<h1 class="subject">{{msg.subject}}</h1>
+{%endif%}
+{% include '_message.html' with msg=msg lists=lists %}
+{%endblock%}

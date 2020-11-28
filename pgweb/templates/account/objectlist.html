@@ -1,0 +1,36 @@
+{%extends "base/page.html"%}
+{%block title%}Your account{%endblock%}
+{%block contents%}
+<h1>{{title}}s <i class="fas fa-th-list"></i></h1>
+<p>
+Objects that are awaiting moderator approval are listed in their own category.
+Note that modifying anything that was previously approved might result in
+additional moderation based upon what has changed in the content.
+</p>
+
+{% if objects.unapproved %}
+<h3>Awaiting Moderation</h3>
+<ul>
+  {%for o in objects.unapproved %}
+    <li><a href="/account/{{suburl}}/{{o.id}}/">{{o}}</a></li>
+  {%endfor%}
+</ul>
+{% endif %}
+
+{% if objects.approved %}
+<h3>Approved</h3>
+<ul>
+  {%for o in objects.approved %}
+    <li><a href="/account/{{suburl}}/{{o.id}}/">{{o}}</a></li>
+  {%endfor%}
+</ul>
+{% endif %}
+
+{%if submit_header%}
+<p>{{submit_header|safe}}</p>
+{%endif%}
+<p>
+  <a class="btn btn-primary" href="/account/{{suburl}}/new/">Submit {{title}}</a>
+</p>
+
+{%endblock%}

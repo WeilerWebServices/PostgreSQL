@@ -1,0 +1,40 @@
+{%extends "base/page.html"%}
+{%load markup%}
+{%block title%}Software Catalogue - {{category.catname}}{%endblock%}
+{%block contents%}
+
+<h1>Software Catalogue - {{category.catname}}</h1>
+
+<p>{{productcount}} product(s) were found in this category.</p>
+<p>{{category.blurb|safe}}</p>
+
+{% for product in products %}
+  <h2 class="news"><a href="{{product.url}}" target="_blank">{{product.name}}</a></h2>
+  <table class="table table-striped product-table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">License</th>
+        <th scope="col">Pricing</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      	<td>{{product.description|markdown:"safe"}}</td>
+        <td>{{product.licencetype}}</td>
+        <td>{{product.price}}</td>
+        <td><a href="{{product.org.url}}" target="_blank">{{product.org.name}}</a></td>
+        <td><a href="{{product.url}}" target="_blank">View</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr />
+{% endfor %}
+
+<p><em><strong>Note:</strong> The PostgreSQL Global Development Group do not endorse or
+recommend any products listed, and cannot vouch for the quality or reliability
+of any of them.</em></p>
+
+{%endblock%}

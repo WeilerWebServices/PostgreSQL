@@ -1,0 +1,826 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 20:36:21 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>The config.py File &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/config_py.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/config_py.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/config_py.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/config_py.html">4.17</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/config_py.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="desktop_deployment.html" title="Desktop Deployment">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="deployment.html" title="Deployment">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a href="getting_started.html">Getting Started</a> &raquo;</li>
+<li class="nav-item nav-item-2"><a accesskey="U" href="deployment.html">Deployment</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">Login Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html">User Management Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_user_password.html">Change User Password Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="menu_bar.html">Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbar.html">Toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabbed_browser.html">Tabbed Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_control.html">Tree Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html">Preferences Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="the-config-py-file">
+<span id="config-py"></span><h1><span class="target" id="index-0"></span>The config.py File<a class="headerlink" href="#the-config-py-file" title="Permalink to this headline">&para;</a></h1>
+<p>There are multiple configuration files that are read at startup by pgAdmin. These
+are as follows:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">config.py</span></code>: This is the main configuration file, and should not be modified.
+It can be used as a reference for configuration settings, that may be overridden
+in one of the following files.</li>
+<li><code class="docutils literal notranslate"><span class="pre">config_distro.py</span></code>: This file is read after <code class="docutils literal notranslate"><span class="pre">config.py</span></code> and is intended for
+packagers to change any settings that are required for their pgAdmin distribution.
+This may typically include certain paths and file locations. This file is optional,
+and may be created by packagers in the same directory as <code class="docutils literal notranslate"><span class="pre">config.py</span></code> if
+needed.</li>
+<li><code class="docutils literal notranslate"><span class="pre">config_local.py</span></code>: This file is read after <code class="docutils literal notranslate"><span class="pre">config_distro.py</span></code> and is intended
+for end users to change any default or packaging specific settings that they may
+wish to adjust to meet local preferences or standards.This file is optional,
+and may be created by users in the same directory as <code class="docutils literal notranslate"><span class="pre">config.py</span></code> if
+needed.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the SERVER_MODE setting is changed in <code class="docutils literal notranslate"><span class="pre">config_distro.py</span></code> or <code class="docutils literal notranslate"><span class="pre">config_local.py</span></code>,
+you will most likely need to re-set the LOG_FILE, SQLITE_PATH, SESSION_DB_PATH
+and STORAGE_DIR values as well as they will have been set based on the default
+configuration or overridden by the runtime.</p>
+</div>
+<p>The default <code class="docutils literal notranslate"><span class="pre">config.py</span></code> file is shown below for reference:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1">#</span>
+<span class="c1"># pgAdmin 4 - PostgreSQL Tools</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (C) 2013 - 2020, The pgAdmin Development Team</span>
+<span class="c1"># This software is released under the PostgreSQL Licence</span>
+<span class="c1">#</span>
+<span class="c1"># config.py - Core application configuration settings</span>
+<span class="c1">#</span>
+<span class="c1">##########################################################################</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">builtins</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">__builtin__</span> <span class="kn">as</span> <span class="nn">builtins</span>
+
+<span class="c1"># We need to include the root directory in sys.path to ensure that we can</span>
+<span class="c1"># find everything we need when running in the standalone runtime.</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">root</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">root</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">pgadmin.utils</span> <span class="kn">import</span> <span class="n">env</span><span class="p">,</span> <span class="n">IS_PY2</span><span class="p">,</span> <span class="n">IS_WIN</span><span class="p">,</span> <span class="n">fs_short_path</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Application settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># Name of the application to display in the UI</span>
+<span class="n">APP_NAME</span> <span class="o">=</span> <span class="s1">'pgAdmin 4'</span>
+<span class="n">APP_ICON</span> <span class="o">=</span> <span class="s1">'pg-icon'</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Application settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># NOTE!!!</span>
+<span class="c1"># If you change any of APP_RELEASE, APP_REVISION or APP_SUFFIX, then you</span>
+<span class="c1"># must also change APP_VERSION_INT to match.</span>
+<span class="c1">#</span>
+<span class="c1"># Any changes made here must also be made in runtime/pgAdmin4.pro and</span>
+<span class="c1"># runtime/Info.plist</span>
+<span class="c1">#</span>
+
+<span class="c1"># Application version number components</span>
+<span class="n">APP_RELEASE</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">APP_REVISION</span> <span class="o">=</span> <span class="mi">19</span>
+
+<span class="c1"># Application version suffix, e.g. 'beta1', 'dev'. Usually an empty string</span>
+<span class="c1"># for GA releases.</span>
+<span class="n">APP_SUFFIX</span> <span class="o">=</span> <span class="s1">''</span>
+
+<span class="c1"># Numeric application version for upgrade checks. Should be in the format:</span>
+<span class="c1"># [X]XYYZZ, where X is the release version, Y is the revision, with a leading</span>
+<span class="c1"># zero if needed, and Z represents the suffix, with a leading zero if needed</span>
+<span class="n">APP_VERSION_INT</span> <span class="o">=</span> <span class="mi">41900</span>
+
+<span class="c1"># DO NOT CHANGE!</span>
+<span class="c1"># The application version string, constructed from the components</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">APP_SUFFIX</span><span class="p">:</span>
+    <span class="n">APP_VERSION</span> <span class="o">=</span> <span class="s1">'</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">APP_RELEASE</span><span class="p">,</span> <span class="n">APP_REVISION</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">APP_VERSION</span> <span class="o">=</span> <span class="s1">'</span><span class="si">%s</span><span class="s1">.</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">APP_RELEASE</span><span class="p">,</span> <span class="n">APP_REVISION</span><span class="p">,</span> <span class="n">APP_SUFFIX</span><span class="p">)</span>
+
+<span class="c1"># Copyright string for display in the app</span>
+<span class="c1"># Any changes made here must also be made in runtime/pgAdmin4.pro</span>
+<span class="n">APP_COPYRIGHT</span> <span class="o">=</span> <span class="s1">'Copyright (C) 2013 - 2020, The pgAdmin Development Team'</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Misc stuff</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># Path to the online help.</span>
+<span class="n">HELP_PATH</span> <span class="o">=</span> <span class="s1">'../../../docs/en_US/_build/html/'</span>
+
+<span class="c1"># Languages we support in the UI</span>
+<span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'en'</span><span class="p">:</span> <span class="s1">'English'</span><span class="p">,</span>
+    <span class="s1">'zh'</span><span class="p">:</span> <span class="s1">'Chinese (Simplified)'</span><span class="p">,</span>
+    <span class="s1">'cs'</span><span class="p">:</span> <span class="s1">'Czech'</span><span class="p">,</span>
+    <span class="s1">'fr'</span><span class="p">:</span> <span class="s1">'French'</span><span class="p">,</span>
+    <span class="s1">'de'</span><span class="p">:</span> <span class="s1">'German'</span><span class="p">,</span>
+    <span class="s1">'it'</span><span class="p">:</span> <span class="s1">'Italian'</span><span class="p">,</span>
+    <span class="s1">'ja'</span><span class="p">:</span> <span class="s1">'Japanese'</span><span class="p">,</span>
+    <span class="s1">'ko'</span><span class="p">:</span> <span class="s1">'Korean'</span><span class="p">,</span>
+    <span class="s1">'pl'</span><span class="p">:</span> <span class="s1">'Polish'</span><span class="p">,</span>
+    <span class="s1">'ru'</span><span class="p">:</span> <span class="s1">'Russian'</span><span class="p">,</span>
+    <span class="s1">'es'</span><span class="p">:</span> <span class="s1">'Spanish'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># DO NOT CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING!</span>
+<span class="c1"># List of modules to skip when dynamically loading</span>
+<span class="n">MODULE_BLACKLIST</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'test'</span><span class="p">]</span>
+
+<span class="c1"># DO NOT CHANGE UNLESS YOU KNOW WHAT YOU ARE DOING!</span>
+<span class="c1"># List of treeview browser nodes to skip when dynamically loading</span>
+<span class="n">NODE_BLACKLIST</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Server settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># The server mode determines whether or not we're running on a web server</span>
+<span class="c1"># requiring user authentication, or desktop mode which uses an automatic</span>
+<span class="c1"># default login.</span>
+<span class="c1">#</span>
+<span class="c1"># DO NOT DISABLE SERVER MODE IF RUNNING ON A WEBSERVER!!</span>
+<span class="c1">#</span>
+<span class="c1"># We only set SERVER_MODE if it's not already set. That's to allow the</span>
+<span class="c1"># runtime to force it to False.</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: If you change the value of SERVER_MODE in an included config file,</span>
+<span class="c1">#       you may also need to redefine any values below that are derived</span>
+<span class="c1">#       from it, notably various paths such as LOG_FILE and anything</span>
+<span class="c1">#       using DATA_DIR.</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">builtins</span><span class="p">,</span> <span class="s1">'SERVER_MODE'</span><span class="p">))</span> <span class="ow">or</span> <span class="n">builtins</span><span class="o">.</span><span class="n">SERVER_MODE</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">SERVER_MODE</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">SERVER_MODE</span> <span class="o">=</span> <span class="n">builtins</span><span class="o">.</span><span class="n">SERVER_MODE</span>
+
+<span class="c1"># HTTP headers to search for CSRF token when it is not provided in the form.</span>
+<span class="c1"># Default is ['X-CSRFToken', 'X-CSRF-Token']</span>
+<span class="n">WTF_CSRF_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'X-pgA-CSRFToken'</span><span class="p">]</span>
+
+<span class="c1"># User ID (email address) to use for the default user in desktop mode.</span>
+<span class="c1"># The default should be fine here, as it's not exposed in the app.</span>
+<span class="n">DESKTOP_USER</span> <span class="o">=</span> <span class="s1">'pgadmin4@pgadmin.org'</span>
+
+<span class="c1"># This option allows the user to host the application on a LAN</span>
+<span class="c1"># Default hosting is on localhost (DEFAULT_SERVER='localhost').</span>
+<span class="c1"># To host pgAdmin4 over LAN set DEFAULT_SERVER='0.0.0.0' (or a specific</span>
+<span class="c1"># adaptor address.</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: This is NOT recommended for production use, only for debugging</span>
+<span class="c1"># or testing. Production installations should be run as a WSGI application</span>
+<span class="c1"># behind Apache HTTPD.</span>
+<span class="n">DEFAULT_SERVER</span> <span class="o">=</span> <span class="s1">'127.0.0.1'</span>
+
+<span class="c1"># The default port on which the app server will listen if not set in the</span>
+<span class="c1"># environment by the runtime</span>
+<span class="n">DEFAULT_SERVER_PORT</span> <span class="o">=</span> <span class="mi">5050</span>
+
+<span class="c1"># Enable X-Frame-Option protection.</span>
+<span class="c1"># Set to one of "SAMEORIGIN", "ALLOW-FROM origin" or "" to disable.</span>
+<span class="c1"># Note that "DENY" is NOT supported (and will be silently ignored).</span>
+<span class="c1"># See https://tools.ietf.org/html/rfc7034 for more info.</span>
+<span class="n">X_FRAME_OPTIONS</span> <span class="o">=</span> <span class="s2">"SAMEORIGIN"</span>
+
+<span class="c1"># Hashing algorithm used for password storage</span>
+<span class="n">SECURITY_PASSWORD_HASH</span> <span class="o">=</span> <span class="s1">'pbkdf2_sha512'</span>
+
+<span class="c1"># Reverse Proxy parameters</span>
+<span class="c1"># You must tell the middleware how many proxies set each header</span>
+<span class="c1"># so it knows what values to trust.</span>
+<span class="c1"># See https://tinyurl.com/yyg7r9av</span>
+<span class="c1"># for more information.</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-For</span>
+<span class="n">PROXY_X_FOR_COUNT</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Proto.</span>
+<span class="n">PROXY_X_PROTO_COUNT</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Host.</span>
+<span class="n">PROXY_X_HOST_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Port.</span>
+<span class="n">PROXY_X_PORT_COUNT</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Number of values to trust for X-Forwarded-Prefix.</span>
+<span class="n">PROXY_X_PREFIX_COUNT</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># NOTE: CSRF_SESSION_KEY, SECRET_KEY and SECURITY_PASSWORD_SALT are no</span>
+<span class="c1">#       longer part of the main configuration, but are stored in the</span>
+<span class="c1">#       configuration databases 'keys' table and are auto-generated.</span>
+
+<span class="c1"># COMPRESSION</span>
+<span class="n">COMPRESS_MIMETYPES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'text/html'</span><span class="p">,</span> <span class="s1">'text/css'</span><span class="p">,</span> <span class="s1">'text/xml'</span><span class="p">,</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'application/javascript'</span>
+<span class="p">]</span>
+<span class="n">COMPRESS_LEVEL</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">COMPRESS_MIN_SIZE</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1"># Set the cache control max age for static files in flask to 1 year</span>
+<span class="n">SEND_FILE_MAX_AGE_DEFAULT</span> <span class="o">=</span> <span class="mi">31556952</span>
+
+<span class="c1"># This will be added to static urls as url parameter with value as</span>
+<span class="c1"># APP_VERSION_INT for cache busting on version upgrade. If the value is set as</span>
+<span class="c1"># None or empty string then it will not be added.</span>
+<span class="c1"># eg - http:localhost:5050/pgadmin.css?intver=3.13</span>
+<span class="n">APP_VERSION_PARAM</span> <span class="o">=</span> <span class="s1">'ver'</span>
+
+<span class="c1"># Add the internal version param to below extensions only</span>
+<span class="n">APP_VERSION_EXTN</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'.css'</span><span class="p">,</span> <span class="s1">'.js'</span><span class="p">,</span> <span class="s1">'.html'</span><span class="p">,</span> <span class="s1">'.svg'</span><span class="p">,</span> <span class="s1">'.png'</span><span class="p">,</span> <span class="s1">'.gif'</span><span class="p">,</span> <span class="s1">'.ico'</span><span class="p">)</span>
+
+<span class="c1"># Data directory for storage of config settings etc. This shouldn't normally</span>
+<span class="c1"># need to be changed - it's here as various other settings depend on it.</span>
+<span class="c1"># On Windows, we always store data in %APPDATA%\pgAdmin. On other platforms,</span>
+<span class="c1"># if we're in server mode we use /var/lib/pgadmin, otherwise ~/.pgadmin</span>
+<span class="k">if</span> <span class="n">IS_WIN</span><span class="p">:</span>
+    <span class="c1"># Use the short path on windows</span>
+    <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fs_short_path</span><span class="p">(</span><span class="n">env</span><span class="p">(</span><span class="s1">'APPDATA'</span><span class="p">)),</span> <span class="sa">u</span><span class="s2">"pgAdmin"</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">SERVER_MODE</span><span class="p">:</span>
+        <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s1">'/var/lib/pgadmin'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="sa">u</span><span class="s1">'~/.pgadmin/'</span><span class="p">))</span>
+
+<span class="c1"># An optional login banner to show security warnings/disclaimers etc. at</span>
+<span class="c1"># login and password recovery etc. HTML may be included for basic formatting,</span>
+<span class="c1"># For example:</span>
+<span class="c1"># LOGIN_BANNER = "&lt;h4&gt;Authorised Users Only!&lt;/h4&gt;" \</span>
+<span class="c1">#                "Unauthorised use is strictly forbidden."</span>
+<span class="n">LOGIN_BANNER</span> <span class="o">=</span> <span class="s2">""</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Log settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># Debug mode?</span>
+<span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># Application log level - one of:</span>
+<span class="c1">#   CRITICAL 50</span>
+<span class="c1">#   ERROR    40</span>
+<span class="c1">#   WARNING  30</span>
+<span class="c1">#   SQL      25</span>
+<span class="c1">#   INFO     20</span>
+<span class="c1">#   DEBUG    10</span>
+<span class="c1">#   NOTSET    0</span>
+<span class="n">CONSOLE_LOG_LEVEL</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span>
+<span class="n">FILE_LOG_LEVEL</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span>
+
+<span class="c1"># Log format.</span>
+<span class="n">CONSOLE_LOG_FORMAT</span> <span class="o">=</span> <span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1">: </span><span class="si">%(levelname)s</span><span class="se">\t</span><span class="si">%(name)s</span><span class="s1">:</span><span class="se">\t</span><span class="si">%(message)s</span><span class="s1">'</span>
+<span class="n">FILE_LOG_FORMAT</span> <span class="o">=</span> <span class="s1">'</span><span class="si">%(asctime)s</span><span class="s1">: </span><span class="si">%(levelname)s</span><span class="se">\t</span><span class="si">%(name)s</span><span class="s1">:</span><span class="se">\t</span><span class="si">%(message)s</span><span class="s1">'</span>
+
+<span class="c1"># Log file name. This goes in the data directory, except on non-Windows</span>
+<span class="c1"># platforms in server mode.</span>
+<span class="k">if</span> <span class="n">SERVER_MODE</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">IS_WIN</span><span class="p">:</span>
+    <span class="n">LOG_FILE</span> <span class="o">=</span> <span class="s1">'/var/log/pgadmin/pgadmin4.log'</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">LOG_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">'pgadmin4.log'</span><span class="p">)</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Server Connection Driver Settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># The default driver used for making connection with PostgreSQL</span>
+<span class="n">PG_DEFAULT_DRIVER</span> <span class="o">=</span> <span class="s1">'psycopg2'</span>
+
+<span class="c1"># Maximum allowed idle time in minutes before which releasing the connection</span>
+<span class="c1"># for the particular session. (in minutes)</span>
+<span class="n">MAX_SESSION_IDLE_TIME</span> <span class="o">=</span> <span class="mi">60</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># User account and settings storage</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># The default path to the SQLite database used to store user accounts and</span>
+<span class="c1"># settings. This default places the file in the same directory as this</span>
+<span class="c1"># config file, but generates an absolute path for use througout the app.</span>
+<span class="n">SQLITE_PATH</span> <span class="o">=</span> <span class="n">env</span><span class="p">(</span><span class="s1">'SQLITE_PATH'</span><span class="p">)</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">'pgadmin4.db'</span><span class="p">)</span>
+
+<span class="c1"># SQLITE_TIMEOUT will define how long to wait before throwing the error -</span>
+<span class="c1"># OperationError due to database lock. On slower system, you may need to change</span>
+<span class="c1"># this to some higher value.</span>
+<span class="c1"># (Default: 500 milliseconds)</span>
+<span class="n">SQLITE_TIMEOUT</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1"># Allow database connection passwords to be saved if the user chooses.</span>
+<span class="c1"># Set to False to disable password saving.</span>
+<span class="n">ALLOW_SAVE_PASSWORD</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1"># Maximum number of history queries stored per user/server/database</span>
+<span class="n">MAX_QUERY_HIST_STORED</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Server-side session storage path</span>
+<span class="c1">#</span>
+<span class="c1"># SESSION_DB_PATH (Default: $HOME/.pgadmin4/sessions)</span>
+<span class="c1">##########################################################################</span>
+<span class="c1">#</span>
+<span class="c1"># We use SQLite for server-side session storage. There will be one</span>
+<span class="c1"># SQLite database object per session created.</span>
+<span class="c1">#</span>
+<span class="c1"># Specify the path used to store your session objects.</span>
+<span class="c1">#</span>
+<span class="c1"># If the specified directory does not exist, the setup script will create</span>
+<span class="c1"># it with permission mode 700 to keep the session database secure.</span>
+<span class="c1">#</span>
+<span class="c1"># On certain systems, you can use shared memory (tmpfs) for maximum</span>
+<span class="c1"># scalability, for example, on Ubuntu:</span>
+<span class="c1">#</span>
+<span class="c1"># SESSION_DB_PATH = '/run/shm/pgAdmin4_session'</span>
+<span class="c1">#</span>
+<span class="c1">##########################################################################</span>
+<span class="n">SESSION_DB_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">'sessions'</span><span class="p">)</span>
+
+<span class="n">SESSION_COOKIE_NAME</span> <span class="o">=</span> <span class="s1">'pga4_session'</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Mail server settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># These settings are used when running in web server mode for confirming</span>
+<span class="c1"># and resetting passwords etc.</span>
+<span class="c1"># See: http://pythonhosted.org/Flask-Mail/ for more info</span>
+<span class="n">MAIL_SERVER</span> <span class="o">=</span> <span class="s1">'localhost'</span>
+<span class="n">MAIL_PORT</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">MAIL_USE_SSL</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">MAIL_USE_TLS</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">MAIL_USERNAME</span> <span class="o">=</span> <span class="s1">''</span>
+<span class="n">MAIL_PASSWORD</span> <span class="o">=</span> <span class="s1">''</span>
+<span class="n">MAIL_DEBUG</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># Flask-Security overrides Flask-Mail's MAIL_DEFAULT_SENDER setting, so</span>
+<span class="c1"># that should be set as such:</span>
+<span class="n">SECURITY_EMAIL_SENDER</span> <span class="o">=</span> <span class="s1">'no-reply@localhost'</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Mail content settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># These settings define the content of password reset emails</span>
+<span class="n">SECURITY_EMAIL_SUBJECT_PASSWORD_RESET</span> <span class="o">=</span> <span class="s2">"Password reset instructions for </span><span class="si">%s</span><span class="s2">"</span> \
+                                        <span class="o">%</span> <span class="n">APP_NAME</span>
+<span class="n">SECURITY_EMAIL_SUBJECT_PASSWORD_NOTICE</span> <span class="o">=</span> <span class="s2">"Your </span><span class="si">%s</span><span class="s2"> password has been reset"</span> \
+                                         <span class="o">%</span> <span class="n">APP_NAME</span>
+<span class="n">SECURITY_EMAIL_SUBJECT_PASSWORD_CHANGE_NOTICE</span> <span class="o">=</span> \
+    <span class="s2">"Your password for </span><span class="si">%s</span><span class="s2"> has been changed"</span> <span class="o">%</span> <span class="n">APP_NAME</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Upgrade checks</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># Check for new versions of the application?</span>
+<span class="n">UPGRADE_CHECK_ENABLED</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1"># Where should we get the data from?</span>
+<span class="n">UPGRADE_CHECK_URL</span> <span class="o">=</span> <span class="s1">'https://www.pgadmin.org/versions.json'</span>
+
+<span class="c1"># What key should we look at in the upgrade data file?</span>
+<span class="n">UPGRADE_CHECK_KEY</span> <span class="o">=</span> <span class="s1">'pgadmin4'</span>
+
+<span class="c1"># Which CA file should we use?</span>
+<span class="c1"># Default to cacert.pem in the same directory as config.py et al.</span>
+<span class="n">CA_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span>
+                       <span class="s2">"cacert.pem"</span><span class="p">)</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Storage Manager storage url config settings</span>
+<span class="c1"># If user sets STORAGE_DIR to empty it will show all volumes if platform</span>
+<span class="c1"># is Windows, '/' if it is Linux, Mac or any other unix type system.</span>
+
+<span class="c1"># For example:</span>
+<span class="c1"># 1. STORAGE_DIR = get_drive("C") or get_drive() # return C:/ by default</span>
+<span class="c1"># where C can be any drive character such as "D", "E", "G" etc</span>
+<span class="c1"># 2. Set path manually like</span>
+<span class="c1"># STORAGE_DIR = "/path/to/directory/"</span>
+<span class="c1">##########################################################################</span>
+<span class="n">STORAGE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">'storage'</span><span class="p">)</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Default locations for binary utilities (pg_dump, pg_restore etc)</span>
+<span class="c1">#</span>
+<span class="c1"># These are intentionally left empty in the main config file, but are</span>
+<span class="c1"># expected to be overridden by packagers in config_distro.py.</span>
+<span class="c1">#</span>
+<span class="c1"># A default location can be specified for each database driver ID, in</span>
+<span class="c1"># a dictionary. Either an absolute or relative path can be specified.</span>
+<span class="c1"># In cases where it may be difficult to know what the working directory</span>
+<span class="c1"># is, "$DIR" can be specified. This will be replaced with the path to the</span>
+<span class="c1"># top-level pgAdmin4.py file. For example, on macOS we might use:</span>
+<span class="c1">#</span>
+<span class="c1"># $DIR/../../SharedSupport</span>
+<span class="c1">#</span>
+<span class="c1">##########################################################################</span>
+<span class="n">DEFAULT_BINARY_PATHS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"pg"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"ppas"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+    <span class="s2">"gpdb"</span><span class="p">:</span> <span class="s2">""</span>
+<span class="p">}</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Test settings - used primarily by the regression suite, not for users</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># The default path for SQLite database for testing</span>
+<span class="n">TEST_SQLITE_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">'test_pgadmin4.db'</span><span class="p">)</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Allows flask application to response to the each request asynchronously</span>
+<span class="c1">##########################################################################</span>
+<span class="n">THREADED_MODE</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Do not allow SQLALCHEMY to track modification as it is going to be</span>
+<span class="c1"># deprecated in future</span>
+<span class="c1">##########################################################################</span>
+<span class="n">SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Number of records to fetch in one batch in query tool when query result</span>
+<span class="c1"># set is large.</span>
+<span class="c1">##########################################################################</span>
+<span class="n">ON_DEMAND_RECORD_COUNT</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Allow users to display Gravatar image for their username in Server mode</span>
+<span class="c1">##########################################################################</span>
+<span class="n">SHOW_GRAVATAR_IMAGE</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Set cookie path</span>
+<span class="c1">##########################################################################</span>
+<span class="n">COOKIE_DEFAULT_PATH</span> <span class="o">=</span> <span class="s1">'/'</span>
+<span class="n">COOKIE_DEFAULT_DOMAIN</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">SESSION_COOKIE_DOMAIN</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">SESSION_COOKIE_SAMESITE</span> <span class="o">=</span> <span class="s1">'Lax'</span>
+
+<span class="c1">#########################################################################</span>
+<span class="c1"># Skip storing session in files and cache for specific paths</span>
+<span class="c1">#########################################################################</span>
+<span class="n">SESSION_SKIP_PATHS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">'/misc/ping'</span>
+<span class="p">]</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Session expiration support</span>
+<span class="c1">##########################################################################</span>
+<span class="c1"># SESSION_EXPIRATION_TIME is the interval in Days. Session will be</span>
+<span class="c1"># expire after the specified number of *days*.</span>
+<span class="n">SESSION_EXPIRATION_TIME</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># CHECK_SESSION_FILES_INTERVAL is interval in Hours. Application will check</span>
+<span class="c1"># the session files for cleanup after specified number of *hours*.</span>
+<span class="n">CHECK_SESSION_FILES_INTERVAL</span> <span class="o">=</span> <span class="mi">24</span>
+
+<span class="c1"># USER_INACTIVITY_TIMEOUT is interval in Seconds. If the pgAdmin screen is left</span>
+<span class="c1"># unattended for &lt;USER_INACTIVITY_TIMEOUT&gt; seconds then the user will</span>
+<span class="c1"># be logged out. When set to 0, the timeout will be disabled.</span>
+<span class="c1"># If pgAdmin doesn't detect any activity in the time specified (in seconds),</span>
+<span class="c1"># the user will be forcibly logged out from pgAdmin. Set to zero to disable</span>
+<span class="c1"># the timeout.</span>
+<span class="c1"># Note: This is applicable only for SERVER_MODE=True.</span>
+<span class="n">USER_INACTIVITY_TIMEOUT</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># OVERRIDE_USER_INACTIVITY_TIMEOUT when set to True will override</span>
+<span class="c1"># USER_INACTIVITY_TIMEOUT when long running queries in the Query Tool</span>
+<span class="c1"># or Debugger are running. When the queries complete, the inactivity timer</span>
+<span class="c1"># will restart in this case. If set to False, user inactivity may cause</span>
+<span class="c1"># transactions or in-process debugging sessions to be aborted.</span>
+<span class="n">OVERRIDE_USER_INACTIVITY_TIMEOUT</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># SSH Tunneling supports only for Python 2.7 and 3.4+</span>
+<span class="c1">##########################################################################</span>
+<span class="n">SUPPORT_SSH_TUNNEL</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="c1"># Allow SSH Tunnel passwords to be saved if the user chooses.</span>
+<span class="c1"># Set to False to disable password saving.</span>
+<span class="n">ALLOW_SAVE_TUNNEL_PASSWORD</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Master password is used to encrypt/decrypt saved server passwords</span>
+<span class="c1"># Applicable for desktop mode only</span>
+<span class="c1">##########################################################################</span>
+<span class="n">MASTER_PASSWORD_REQUIRED</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Allows pgAdmin4 to create session cookies based on IP address, so even</span>
+<span class="c1"># if a cookie is stolen, the attacker will not be able to connect to the</span>
+<span class="c1"># server using that stolen cookie.</span>
+<span class="c1"># Note: This can cause problems when the server is deployed in dynamic IP</span>
+<span class="c1"># address hosting environments, such as Kubernetes or behind load</span>
+<span class="c1"># balancers. In such cases, this option should be set to False.</span>
+<span class="c1">##########################################################################</span>
+<span class="n">ENHANCED_COOKIE_PROTECTION</span> <span class="o">=</span> <span class="bp">True</span>
+
+<span class="c1">##########################################################################</span>
+<span class="c1"># Local config settings</span>
+<span class="c1">##########################################################################</span>
+
+<span class="c1"># Load distribution-specific config overrides</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">config_distro</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Load local config overrides</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">config_local</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<span class="c1"># SUPPORT_SSH_TUNNEL can be override in local config file and if that</span>
+<span class="c1"># setting is False in local config then we should not check the Python version.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">SUPPORT_SSH_TUNNEL</span> <span class="ow">is</span> <span class="bp">True</span> <span class="ow">and</span>
+    <span class="p">((</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">)</span> <span class="ow">or</span>
+     <span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">))):</span>
+    <span class="n">SUPPORT_SSH_TUNNEL</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">ALLOW_SAVE_TUNNEL_PASSWORD</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="c1"># Disable USER_INACTIVITY_TIMEOUT when SERVER_MODE=False</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">SERVER_MODE</span><span class="p">:</span>
+    <span class="n">USER_INACTIVITY_TIMEOUT</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

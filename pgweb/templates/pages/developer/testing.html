@@ -1,0 +1,38 @@
+{%extends "base/page.html"%}
+{%block title%}Testing{%endblock%}
+{%block contents%}
+
+<h1>Testing <i class="fa fa-code"></i></h1>
+
+<p>
+  The stability and performance of PostgreSQL is made possible by the dedicated
+  work of people testing and reporting back their findings, whether they are
+  <a href="/account/submitbug/">bugs</a>,
+  <a href="/support/security/">security issues</a>, or performance problems.
+</p>
+
+<p>
+  Below are some resources that will help you to test some of the latest code
+  that is committed to the PostgreSQL project. These URLs contain information
+  about an ongoing beta, the nightly development builds and documentation
+  updates.
+</p>
+
+<p>
+  Any code or builds directly referenced from this section should not be
+  considered ready for production use.
+</p>
+
+<h2>Test Builds</h2>
+<ul>
+    <li><a href="/developer/beta/">Current Beta release information</a></li>
+    <li><a href="/ftp/snapshot/dev/">Download nightly code build</a></li>
+    <li><a href="/download/snapshots/">Download periodic binary builds</a></li>
+    <li><a href="https://buildfarm.postgresql.org/">Distributed Build Farm</a></li>
+</ul>
+
+<h2>Documentation</h2>
+<ul>
+  <li><a href="/docs/devel/">Developer Version of The Docs</a> (<a href="https://buildfarm.postgresql.org/cgi-bin/show_stage_log.pl?nm=guaibasaurus&dt=latest&stg=make-doc">build log</a>)</li>
+</ul>
+{%endblock%}

@@ -1,0 +1,43 @@
+{%extends "base/page.html"%}
+{%block title%}Servers{%endblock%}
+{%block contents%}
+
+<h1>Servers <i class="fas fa-server"></i></h1>
+
+<p>
+The servers that power the services of <a href="/">www.postgresql.org</a> are provided by
+different companies and organisations around the world.
+</p>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>Name</th>
+    	<th>Provider</th>
+    	<th>Dedicated</th>
+    	<th>Specs</th>
+    	<th>OS</th>
+    	<th>Location</th>
+    	<th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for server in servers %}
+      <tr>
+        <th scope="row">{{ server.name }}</th>
+        <td>
+          {% for sponsor in server.sponsors.all %}
+            <a href="{{ sponsor.url }}" target="_blank">{{ sponsor.name }}</a>{%if not forloop.last%}, {%endif%}
+          {% endfor %}
+        </td>
+        <td>{{ server.dedicated|yesno:"Yes,No" }}</td>
+        <td>{{ server.performance }}</td>
+        <td>{{ server.os }}</td>
+        <td>{{ server.location }}</td>
+        <td>{{ server.usage }}</td>
+      </tr>
+    {%endfor%}
+  </tbody>
+</table>
+
+{%endblock%}

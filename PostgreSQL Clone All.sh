@@ -1,0 +1,9 @@
+git clone https://github.com/postgres/postgres-old-soon-decommissioned.git
+git clone https://github.com/postgres/pgadmin3.git
+git clone https://github.com/postgres/pgagent.git
+git clone https://github.com/postgres/postgres.git
+git clone https://github.com/postgres/pgweb.git
+git clone https://github.com/postgres/pgadmin4.git
+git clone https://github.com/postgres/.github.git
+git clone https://github.com/postgres/pgarchives.git
+git clone https://github.com/postgres/pgweb-static.git

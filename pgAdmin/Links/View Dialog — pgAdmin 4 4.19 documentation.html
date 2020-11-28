@@ -1,0 +1,391 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 20:16:06 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>View Dialog &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/view_dialog.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/view_dialog.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/view_dialog.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/view_dialog.html">4.17</a>
+                     | 
+                    <a  href="/docs/pgadmin4/3.6/view_dialog.html">3.6</a>
+                     | 
+                    <a  href="/docs/pgadmin4/2.1/view_dialog.html">2.1</a>
+                     | 
+                    <a  href="/docs/pgadmin4/1.6/view_dialog.html">1.6</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/view_dialog.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="modifying_tables.html" title="Creating or Modifying a Table">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="user_mapping_dialog.html" title="User Mapping Dialog">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="managing_database_objects.html">Managing Database Objects</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">View Dialog</a><ul>
+<li><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cast_dialog.html">Cast Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="collation_dialog.html">Collation Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain_dialog.html">Domain Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domain_constraint_dialog.html">Domain Constraints Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="event_trigger_dialog.html">Event Trigger Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extension_dialog.html">Extension Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreign_data_wrapper_dialog.html">Foreign Data Wrapper Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreign_server_dialog.html">Foreign Server Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="foreign_table_dialog.html">Foreign Table Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fts_configuration_dialog.html">FTS Configuration Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fts_dictionary_dialog.html">FTS Dictionary Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fts_parser_dialog.html">FTS Parser Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fts_template_dialog.html">FTS Template Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="function_dialog.html">Function Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="language_dialog.html">Language Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="materialized_view_dialog.html">Materialized View Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="package_dialog.html">Package Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="procedure_dialog.html">Procedure Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="schema_dialog.html">Schema Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sequence_dialog.html">Sequence Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="synonym_dialog.html">Synonym Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="trigger_function_dialog.html">Trigger Function Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type_dialog.html">Type Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_mapping_dialog.html">User Mapping Dialog</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">View Dialog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="view-dialog">
+<span id="id1"></span><h1><span class="target" id="index-0"></span>View Dialog<a class="headerlink" href="#view-dialog" title="Permalink to this headline">&para;</a></h1>
+<p>Use the <em>View</em> dialog to define a view. The view is not physically materialized;
+the query is executed each time the view is referenced in a query.</p>
+<p>The <em>View</em> dialog organizes the development of a View through the following
+dialog tabs: <em>General</em>, <em>Definition</em>, <em>Code</em> and <em>Security</em>&rdquo;. The <em>SQL</em> tab displays
+the SQL code generated by dialog selections.</p>
+<p>Click the <em>General</em> tab to begin.</p>
+<img alt="View dialog general tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/view_general.png"/>
+<p>Use the fields in the <em>General</em> tab to identify a view:</p>
+<ul class="simple">
+<li>Use the <em>Name</em> field to add a descriptive name for the view. The name of the
+view must be distinct from the name of any other view, table, sequence, index
+or foreign table in the same schema. The name will be displayed in the
+<em>pgAdmin</em> tree control.</li>
+<li>Use the drop-down listbox next to <em>Owner</em> to select the role that will own the
+view.</li>
+<li>If applicable, select the name of the schema in which the view will reside
+from the drop-down listbox in the <em>Schema</em> field.</li>
+<li>Store notes about the view in the <em>Comments</em> field.</li>
+</ul>
+<p>Click the <em>Definition</em> tab to continue.</p>
+<img alt="View dialog definition tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/view_definition.png"/>
+<p>Use the fields in the <em>Definition</em> tab to define properties of the view:</p>
+<ul class="simple">
+<li>Set the <em>Security Barrier</em> switch to <em>Yes</em> to indicate that the view is to act
+as a security barrier.  For more information about defining and using a
+security barrier rule, see Section 38.5 of the PostgreSQL documentation.</li>
+<li>Use the drop-down listbox next to <em>Check options</em> to select from <em>No</em>, <em>Local</em>
+or <em>Cascaded</em>:<ul>
+<li>The <em>Local</em> option specifies that new rows are only checked against the
+conditions defined in the view. Any conditions defined on underlying base
+views are not checked (unless you specify the CHECK OPTION).</li>
+<li>The <em>Cascaded</em> option specifies new rows are checked against the conditions
+of the view and all underlying base views.</li>
+</ul>
+</li>
+</ul>
+<p>Click the <em>Code</em> tab to continue.</p>
+<img alt="View dialog code tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/view_code.png"/>
+<p>Use the workspace in the <em>Code</em> tab to write a query to create a view.</p>
+<p>Click the <em>Security</em> tab to continue.</p>
+<img alt="View dialog security tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/view_security.png"/>
+<p>Use the <em>Security</em> tab to assign privileges and define security labels.</p>
+<p>Use the <em>Privileges</em> panel to assign privileges to a role. Click the <em>Add</em> icon
+(+) to set privileges for the view:</p>
+<ul class="simple">
+<li>Select the name of the role that will be granted privileges from the drop-down
+listbox in the <em>Grantee</em> field.</li>
+<li>Click inside the <em>Privileges</em> field. Check the boxes to the left of one or
+more privileges to grant the selected privilege to the specified user.</li>
+<li>The current user, who is the default grantor for granting the privilege, is displayed in the <em>Grantor</em> field.</li>
+</ul>
+<p>Click the <em>Add</em> icon (+) to assign additional privileges; to discard a
+privilege, click the trash icon to the left of the row and confirm deletion in
+the <em>Delete Row</em> popup.</p>
+<p>Use the <em>Security Labels</em> panel to define security labels applied to the view.
+Click the <em>Add</em> icon (+) to add each security label selection:</p>
+<ul class="simple">
+<li>Specify a security label provider in the <em>Provider</em> field. The named provider
+must be loaded and must consent to the proposed labeling operation.</li>
+<li>Specify a a security label in the <em>Security Label</em> field. The meaning of a
+given label is at the discretion of the label provider. PostgreSQL places no
+restrictions on whether or how a label provider must interpret security
+labels; it merely provides a mechanism for storing them.</li>
+</ul>
+<p>Click the <em>Add</em> icon (+) to assign additional security labels; to discard a
+security label, click the trash icon to the left of the row and confirm deletion
+in the <em>Delete Row</em> popup.</p>
+<p>Click the <em>SQL</em> tab to continue.</p>
+<p>Your entries in the <em>View</em> dialog generate a SQL command (see an example below).
+Use the <em>SQL</em> tab for review; revisit or switch tabs to make any changes to the
+SQL command.</p>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">&para;</a></h2>
+<p>The following is an example of the sql command generated by user selections in
+the <em>View</em> dialog:</p>
+<img alt="View dialog sql tab" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/view_sql.png"/>
+<p>The example shown demonstrates creating a view named <em>distributor_code</em>.</p>
+<ul class="simple">
+<li>Click the <em>Info</em> button (i) to access online help.</li>
+<li>Click the <em>Save</em> button to save work.</li>
+<li>Click the <em>Cancel</em> button to exit without saving work.</li>
+<li>Click the <em>Reset</em> button to restore configuration parameters.</li>
+</ul>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

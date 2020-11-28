@@ -1,0 +1,33 @@
+{%extends "page.html"%}
+{%block title%}PostgreSQL Mailing Lists: {{list.listname}}{%endblock%}
+{%block extrahead%}<meta name="robots" content="noindex" />{%endblock%}
+{%load pgfilters%}
+
+{%block contents%}
+<h1>{{list.listname}} <i class="far fa-envelope"></i></h1>
+<p>{{list.description|safe}}</p>
+
+{%include "searchform.html" %}
+
+<h2>View Archives</h2>
+
+{%regroup months by year as yearmonth %}
+<table class="table table-striped table-sm thread-list">
+  <tbody>
+    {% for year in yearmonth %}
+      <tr>
+        <th colspan="3">{{ year.grouper }}</th>
+      </tr>
+      {% for month in year.list %}
+        <tr>
+          <th scope="row">
+            <a href="/list/{{list.listname}}/{{month.year}}-{{month.month|stringformat:"02d"}}/">{{month.date|date:"F Y"}}</a>
+          </th>
+          <td><a href="/list/{{list.listname}}/{{month.year}}-{{month.month|stringformat:"02d"}}/">View Archives</a></td>
+          <td><a href="/list/{{list.listname}}/mbox/{{list.listname}}.{{month.year}}{{month.month|stringformat:"02d"}}">Download mbox</a></td>
+        </tr>
+      {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+{%endblock%}

@@ -1,0 +1,477 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 19:40:56 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Menu Bar &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/menu_bar.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/menu_bar.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/menu_bar.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/menu_bar.html">4.17</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/menu_bar.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="toolbar.html" title="Toolbar">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="user_interface.html" title="User Interface">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="getting_started.html">Getting Started</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">Menu Bar</a><ul>
+<li><a class="reference internal" href="#the-file-menu">The File Menu</a></li>
+<li><a class="reference internal" href="#the-object-menu">The Object Menu</a></li>
+<li><a class="reference internal" href="#the-tools-menu">The Tools Menu</a></li>
+<li><a class="reference internal" href="#the-help-menu">The Help Menu</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="login.html">Login Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_management.html">User Management Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change_user_password.html">Change User Password Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_interface.html">User Interface</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Menu Bar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbar.html">Toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tabbed_browser.html">Tabbed Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tree_control.html">Tree Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preferences.html">Preferences Dialog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keyboard_shortcuts.html">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pgagent.html">pgAgent</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="menu-bar">
+<span id="id1"></span><h1><span class="target" id="index-0"></span>Menu Bar<a class="headerlink" href="#menu-bar" title="Permalink to this headline">&para;</a></h1>
+<p>The pgAdmin menu bar provides drop-down menus for access to options, commands,
+and utilities. The menu bar displays the following selections: <em>File</em>, <em>Object</em>,
+Tools*, and <em>Help</em>. Selections may be grayed out which indicates they are
+disabled for the object currently selected in the <em>pgAdmin</em> tree control.</p>
+<div class="section" id="the-file-menu">
+<h2>The File Menu<a class="headerlink" href="#the-file-menu" title="Permalink to this headline">&para;</a></h2>
+<img alt="pgAdmin file menu bar" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/file_menu.png"/>
+<p>Use the <em>File</em> menu to access the following options:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%"></col>
+<col width="81%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>Preferences</em></td>
+<td>Click to open the <a class="reference internal" href="preferences.html#preferences"><span class="std std-ref">Preferences</span></a> dialog to to customize your pgAdmin settings.</td>
+</tr>
+<tr class="row-odd"><td><em>Reset Layout</em></td>
+<td>If you have modified the workspace, click to restore the default layout.</td>
+</tr>
+<tr class="row-even"><td><em>Lock Layout</em></td>
+<td>Click to open a submenu to select the level for locking the UI layout
+This can also be changed from browser display <a class="reference internal" href="preferences.html#preferences"><span class="std std-ref">preferences</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-object-menu">
+<h2>The Object Menu<a class="headerlink" href="#the-object-menu" title="Permalink to this headline">&para;</a></h2>
+<img alt="pgAdmin object menu bar" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/object_menu.png"/>
+<p>The <em>Object</em> menu is context-sensitive. Use the <em>Object</em> menu to access the
+following options (in alphabetical order):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%"></col>
+<col width="81%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>Change Password&hellip;</em></td>
+<td>Click to open the <a class="reference internal" href="change_password_dialog.html#change-password-dialog"><span class="std std-ref">Change Password&hellip;</span></a> dialog to change your password.</td>
+</tr>
+<tr class="row-odd"><td><em>Clear Saved Password</em></td>
+<td>If you have saved the database server password, click to clear the saved password.
+Enable only when password is already saved.</td>
+</tr>
+<tr class="row-even"><td><em>Clear SSH Tunnel Password</em></td>
+<td>If you have saved the ssh tunnel password, click to clear the saved password.
+Enable only when password is already saved.</td>
+</tr>
+<tr class="row-odd"><td><em>Connect Server&hellip;</em></td>
+<td>Click to open the <a class="reference internal" href="connect_to_server.html#connect-to-server"><span class="std std-ref">Connect to Server</span></a> dialog to establish a connection with a server.</td>
+</tr>
+<tr class="row-even"><td><em>Create</em></td>
+<td>Click <em>Create</em> to access a context menu that provides context-sensitive selections.
+Your selection opens a <em>Create</em> dialog for creating a new object.</td>
+</tr>
+<tr class="row-odd"><td><em>Delete/Drop</em></td>
+<td>Click to delete the currently selected object from the server.</td>
+</tr>
+<tr class="row-even"><td><em>Disconnect Server&hellip;</em></td>
+<td>Click to disconnect the currently selected server.</td>
+</tr>
+<tr class="row-odd"><td><em>Drop Cascade</em></td>
+<td>Click to delete the currently selected object and all dependent objects from the server.</td>
+</tr>
+<tr class="row-even"><td><em>Properties&hellip;</em></td>
+<td>Click to review or modify the currently selected object&rsquo;s properties.</td>
+</tr>
+<tr class="row-odd"><td><em>Refresh&hellip;</em></td>
+<td>Click to refresh the currently selected object.</td>
+</tr>
+<tr class="row-even"><td><em>Remove Server</em></td>
+<td>Click to remove the currently selected server.</td>
+</tr>
+<tr class="row-odd"><td><em>Scripts</em></td>
+<td>Click to open the <a class="reference internal" href="query_tool.html#query-tool"><span class="std std-ref">Query tool</span></a> to edit or view the selected script from the flyout menu.</td>
+</tr>
+<tr class="row-even"><td><em>Trigger(s)</em></td>
+<td>Click to <em>Disable</em> or <em>Enable</em> trigger(s) for the currently selected table. Options are displayed on the flyout menu.</td>
+</tr>
+<tr class="row-odd"><td><em>Truncate</em></td>
+<td>Click to remove all rows from a table (<em>Truncate</em>) or to remove all rows from a table and its child tables
+(<em>Truncate Cascade</em>). Options are displayed on the flyout menu.</td>
+</tr>
+<tr class="row-even"><td><em>View Data</em></td>
+<td>Click to access a context menu that provides several options for viewing data (see below).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-tools-menu">
+<h2>The Tools Menu<a class="headerlink" href="#the-tools-menu" title="Permalink to this headline">&para;</a></h2>
+<img alt="pgAdmin tools menu bar" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/tool_menu.png"/>
+<p>Use the <em>Tools</em> menu to access the following options (in alphabetical order):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%"></col>
+<col width="84%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>Add named restore point</em></td>
+<td>Click to open the <a class="reference internal" href="add_restore_point_dialog.html#add-restore-point-dialog"><span class="std std-ref">Add named restore point&hellip;</span></a> dialog to take a point-in-time snapshot of the current
+server state.</td>
+</tr>
+<tr class="row-odd"><td><em>Backup&hellip;</em></td>
+<td>Click to open the <a class="reference internal" href="backup_dialog.html#backup-dialog"><span class="std std-ref">Backup&hellip;</span></a> dialog to backup database objects.</td>
+</tr>
+<tr class="row-even"><td><em>Backup Globals&hellip;</em></td>
+<td>Click to open the <a class="reference internal" href="backup_globals_dialog.html#backup-globals-dialog"><span class="std std-ref">Backup Globals&hellip;</span></a> dialog to backup cluster objects.</td>
+</tr>
+<tr class="row-odd"><td><em>Backup Server&hellip;</em></td>
+<td>Click to open the <a class="reference internal" href="backup_server_dialog.html#backup-server-dialog"><span class="std std-ref">Backup Server&hellip;</span></a> dialog to backup a server.</td>
+</tr>
+<tr class="row-even"><td><em>Grant Wizard&hellip;</em></td>
+<td>Click to access the <a class="reference internal" href="grant_wizard.html#grant-wizard"><span class="std std-ref">Grant Wizard</span></a> tool.</td>
+</tr>
+<tr class="row-odd"><td><em>Import/Export&hellip;</em></td>
+<td>Click to open the <a class="reference internal" href="import_export_data.html#import-export-data"><span class="std std-ref">Import/Export data&hellip;</span></a> dialog to import or export data from a table.</td>
+</tr>
+<tr class="row-even"><td><em>Maintenance&hellip;</em></td>
+<td>Click to open the <a class="reference internal" href="maintenance_dialog.html#maintenance-dialog"><span class="std std-ref">Maintenance&hellip;</span></a> dialog to VACUUM, ANALYZE, REINDEX, or CLUSTER.</td>
+</tr>
+<tr class="row-odd"><td><em>Pause replay of WAL</em></td>
+<td>Click to pause the replay of the WAL log.</td>
+</tr>
+<tr class="row-even"><td><em>Query tool</em></td>
+<td>Click to open the <a class="reference internal" href="query_tool.html#query-tool"><span class="std std-ref">Query tool</span></a> for the currently selected object.</td>
+</tr>
+<tr class="row-odd"><td><em>Reload Configuration&hellip;</em></td>
+<td>Click to update configuration files without restarting the server.</td>
+</tr>
+<tr class="row-even"><td><em>Restore&hellip;</em></td>
+<td>Click to access the <a class="reference internal" href="restore_dialog.html#restore-dialog"><span class="std std-ref">Restore</span></a> dialog to restore database files from a backup.</td>
+</tr>
+<tr class="row-odd"><td><em>Resume replay of WAL</em></td>
+<td>Click to resume the replay of the WAL log.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="the-help-menu">
+<h2>The Help Menu<a class="headerlink" href="#the-help-menu" title="Permalink to this headline">&para;</a></h2>
+<img alt="pgAdmin help menu bar" class="align-center" src="/static/docs/pgadmin4-dev/docs/en_US/_build/html/_images/help_menu.png"/>
+<p>Use the options on the <em>Help</em> menu to access online help documents, or to review
+information about the pgAdmin installation (in alphabetical order):</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%"></col>
+<col width="86%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><em>About pgAdmin 4</em></td>
+<td>Click to open a window where you will find information about pgAdmin; this includes the current version and the current user.</td>
+</tr>
+<tr class="row-odd"><td><em>Online Help</em></td>
+<td>Click to open documentation support for using pgAdmin utilities, tools and dialogs.
+Navigate (in the newly opened tab?) help documents in the left browser pane or use the search bar to specify a topic.</td>
+</tr>
+<tr class="row-even"><td><em>pgAdmin Website</em></td>
+<td>Click to open the <em>pgAdmin.org</em> website in a browser window.</td>
+</tr>
+<tr class="row-odd"><td><em>PostgreSQL Website</em></td>
+<td>Click to access the PostgreSQL core documentation hosted at the PostgreSQL site. The site also offers guides, tutorials, and resources.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

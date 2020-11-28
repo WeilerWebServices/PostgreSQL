@@ -1,0 +1,44 @@
+Please ensure you have read the
+<a href="/docs/current/bug-reporting.html">bug reporting guidelines</a>
+before reporting a bug. In particular, please re-read the
+<a href="/docs/current/">documentation</a> to verify that what you are
+trying is possible. If the documentation is not clear, please report that, too;
+it is a documentation bug. If a program does something different from what the
+documentation says, that is also a bug.</p>
+
+<p>Poor performance is not necessarily a bug. Read the documentation or ask on
+one of the <a href="/list/">mailing lists</a> for help in tuning
+your applications. Failing to comply to the SQL standard is not necessarily a
+bug either, unless compliance for the specific feature is explicitly claimed.</p>
+
+<p>Before you continue, check on the
+<a href="https://wiki.postgresql.org/wiki/Todo">TODO list</a> and in the
+<a href="https://wiki.postgresql.org/wiki/Category:FAQ">FAQ</a> to see if your bug is already known. If you cannot
+decode the information on the TODO list, report your problem so we can clarify
+the TODO list.</p>
+
+<p><strong>If you believe you have found a security issue, please send an email to
+<a href="mailto:security@postgresql.org">security@postgresql.org</a></strong>. All
+other bugs will be forwarded to the
+<a href="/list/pgsql-bugs/">pgsql-bugs</a> mailing
+list where they will be publicly archived.</p>
+
+<p>Make sure you are running the latest available minor release for your major
+<a href="/support/versioning/">version</a> before reporting a bug. The current
+list of supported versions is
+{%for ver in supportedversions%}{{ver}}{%if not forloop.last%}, {%endif%}{%endfor%}.
+</p>
+
+<p>This bug report form should only be used for reporting bugs and problems
+with the PostgreSQL database.  Problems with database connectors such as ODBC
+and JDBC, graphical administration tools such as pgAdmin or other external
+projects <strong>should not be reported here</strong>; please report to those projects
+directly.  For products closely connected with PostgreSQL, there may be an
+appropriate <a href='/list/'>mailing list</a> available.
+
+<p>
+By submitting a bug through this form you agree that all contents of the bug report,
+including your personal information as listed, will be posted to the <strong>public</strong>
+<a href="/list/pgsql-bugs/">pgsql-bugs</a> mailing list, and archived in the
+<strong>public</strong> list archives.
+</p>

@@ -1,0 +1,68 @@
+{%extends "base/page.html"%}
+{%block title%}Feature Matrix{%endblock%}
+
+{%block extrascript%}
+<script type="text/javascript" src="/media/js/featurematrix.js"></script>
+{%endblock%}
+
+{%block contents%}
+<h1>Feature Matrix <i class="fas fa-th-list"></i></h1>
+<p>
+This table outlines which features were added in which version. To get more
+information about a feature, click the link or hover the mouse pointer over
+the text.
+</p>
+<h3>Groups</h3>
+<ul>
+{% for group in groups %}
+  <li>
+    <a href="#{{group.group.groupname|slugify}}">{{group.group.groupname}}</a>
+  </li>
+{% endfor %}
+</ul>
+
+<div class="row">
+  <div id="feature-matrix-filter" class="col-8 offset-2 border">
+    <form id="featurematrix_version_filter"><h5>Filter by version</h5>
+      {% for version in versions %}
+        <label for="{{ version.numtree|cut:"." }}">{{ version.numtree }}</label>
+        <input type="checkbox" id="toggle_{{ version.numtree|cut:"." }}" class="featurematrix_version" {% if version.supported or version.testing %}checked{% endif %} value="{{ version.numtree }}" />
+      {% endfor %}
+      <hr id="featurematrix_version_divider" />
+      <label for="hide_unchanged">Hide unchanged features</label><input type="checkbox" id="hide_unchanged" />
+    </form>
+  </div>
+</div>
+
+{% for group in groups %}
+  <h2>
+    <a name="{{group.group.groupname|slugify}}">{{ group.group.groupname }}</a>
+  </h2>
+  <table class="table table-striped table-sm">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" width="30%">&nbsp;</th>
+        {% for col in group.group.columns %}
+          <th scope="col" class="feature-version-col">{{col}}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {%for feature in group.features%}
+        <tr valign="top">
+          <th scope="row" {%if feature.featuredescription %}title="{{ feature.featuredescription|truncatewords:15 }}"{% endif %}>
+            {% if feature.featuredescription %}
+              <a href="{{feature.featurelink}}">{{feature.featurename}}</a>
+            {%else%}
+              {{feature.featurename}}
+            {%endif%}
+          </th>
+          {%for col in feature.columns%}
+            <td class="fm_{{col.class}}">{{col.str}}</td>
+          {%endfor%}
+        </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+{% endfor %}
+{%endblock%}

@@ -1,0 +1,165 @@
+{%extends "base/page.html"%}
+{%block title%}About{%endblock%}
+{%block contents%}
+
+<h1>About <img class="logo" src="/media/img/about/press/elephant.png" alt="PostgreSQL Elephant Logo" /></h1>
+
+<h2>What is PostgreSQL?</h2>
+<p>PostgreSQL is a powerful, open source object-relational database system that uses and extends the SQL language combined with many features that safely store and scale the most complicated data workloads.  The origins of PostgreSQL date back to 1986 as part of the <a href="/docs/current/history.html">POSTGRES</a> project at the University of California at Berkeley and has more than 30 years of active development on the core platform.</p>
+<p>PostgreSQL has earned a strong reputation for its proven architecture, reliability, data integrity, robust feature set, extensibility, and the dedication of the open source community behind the software to consistently deliver performant and innovative solutions.  PostgreSQL runs on <a href="/download/">all major operating systems</a>, has been <a href="https://en.wikipedia.org/wiki/ACID" target="_blank">ACID</a>-compliant since 2001, and has powerful add-ons such as the popular <a href="https://postgis.net/" target="_blank">PostGIS</a> geospatial database extender.  It is no surprise that PostgreSQL has become the open source relational database of choice for many people and organisations.</p>
+<p><a href="/docs/current/tutorial.html">Getting started</a> with using PostgreSQL has never been easier - pick a project you want to build, and let PostgreSQL safely and robustly store your data.</p>
+
+<h2>Why use PostgreSQL?</h2>
+<p>
+  PostgreSQL comes with <a href="/about/featurematrix/">many features</a> aimed to help developers build applications, administrators to protect data integrity and build fault-tolerant environments, and help you manage your data no matter how big or small the dataset.  In addition to being <a href="/about/license/">free and open source</a>, PostgreSQL is highly extensible. For example, you can define your own data types, build out custom functions, even write code from <a href="/docs/current/xplang.html">different programming languages</a> without recompiling your database!
+</p>
+<p>PostgreSQL tries to conform with the <a href="/docs/current/features.html">SQL standard</a> where such conformance does not contradict traditional features or could lead to poor architectural decisions. Many of the features required by the SQL standard are supported, though sometimes with slightly differing syntax or function. Further moves towards conformance can be expected over time. As of the version 12 release in October 2019, PostgreSQL conforms to at least 160 of the 179 mandatory features for SQL:2016 Core conformance. As of this writing, no relational database meets full conformance with this standard.
+</p>
+<p>Below is an inexhaustive list of various features found in PostgreSQL, with more being added in every <a href="/developer/roadmap/">major release</a>:
+</p>
+<ul>
+  <li>
+    <strong>Data Types</strong>
+    <ul>
+      <li>Primitives: Integer, Numeric, String, Boolean</li>
+      <li>Structured: Date/Time, Array, Range, UUID</li>
+      <li>Document: JSON/JSONB, XML, Key-value (Hstore)</li>
+      <li>Geometry: Point, Line, Circle, Polygon</li>
+      <li>Customizations: Composite, Custom Types</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Data Integrity</strong>
+    <ul>
+      <li>UNIQUE, NOT NULL</li>
+      <li>Primary Keys</li>
+      <li>Foreign Keys</li>
+      <li>Exclusion Constraints</li>
+      <li>Explicit Locks, Advisory Locks</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Concurrency, Performance</strong>
+    <ul>
+      <li>Indexing: B-tree, Multicolumn, Expressions, Partial</li>
+      <li>Advanced Indexing: GiST, SP-Gist, KNN Gist, GIN, BRIN, Covering indexes, Bloom filters</li>
+      <li>Sophisticated query planner / optimizer, index-only scans, multicolumn statistics</li>
+      <li>Transactions, Nested Transactions (via savepoints)</li>
+      <li>Multi-Version concurrency Control (MVCC)</li>
+      <li>Parallelization of read queries and building B-tree indexes</li>
+      <li>Table partitioning</li>
+      <li>All transaction isolation levels defined in the SQL standard, including Serializable</li>
+      <li>Just-in-time (JIT) compilation of expressions</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Reliability, Disaster Recovery</strong>
+    <ul>
+      <li>Write-ahead Logging (WAL)</li>
+      <li>Replication: Asynchronous, Synchronous, Logical</li>
+      <li>Point-in-time-recovery (PITR), active standbys</li>
+      <li>Tablespaces</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Security</strong>
+    <ul>
+      <li>Authentication: GSSAPI, SSPI, LDAP, SCRAM-SHA-256, Certificate, and more</li>
+      <li>Robust access-control system</li>
+      <li>Column and row-level security</li>
+      <li>Multi-factor authentication with certificates and an additional method</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Extensibility</strong>
+    <ul>
+      <li>Stored functions and procedures</li>
+      <li>Procedural Languages: PL/PGSQL, Perl, Python (and many more)</li>
+      <li>SQL/JSON path expressions</li>
+      <li>Foreign data wrappers: connect to other databases or streams with a standard SQL interface</li>
+      <li>Customizable storage interface for tables</li>
+      <li>Many extensions that provide additional functionality, including PostGIS</li>
+    </ul>
+  </li>
+  <li>
+    <strong>Internationalisation, Text Search</strong>
+    <ul>
+      <li>Support for international character sets, e.g. through ICU collations</li>
+      <li>Case-insensitive and accent-insensitive collations</li>
+      <li>Full-text search</li>
+    </ul>
+  </li>
+</ul>
+<p>There are many more features that you can discover in the PostgreSQL <a href="/docs/">documentation</a>.  Additionally, PostgreSQL is highly extensible: many features, such as indexes, have defined APIs so that you can build out with PostgreSQL to solve your challenges.</p>
+<p>PostgreSQL has been proven to be highly scalable both in the sheer quantity of data it can manage and in the number of concurrent users it can accommodate. There are active PostgreSQL clusters in production environments that manage many terabytes of data, and specialized systems that manage petabytes.</p>
+
+<h2>Any questions?</h2>
+<p>The first place to go to for any questions on PostgreSQL is its <a href="/docs/">world-renowned documentation</a> which discusses how to use the database software in-depth.
+</p>
+<p>
+  We also have many <strong><a href="/list/">mailing lists</a></strong> where you can connect and participate in the <a href="/community/">community</a>, as well as many <a href="/about/events/">events</a> and <a href="/community/user-groups/">local user groups</a> where you can connect with other users.
+</p>
+
+<h2>Our users <i class="fa fa-heart"></i> us</h2>
+
+<div class="row">
+	<div class="col-md-8 col-center m-auto">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+        {% for quote in quotes %}
+          <div class="item carousel-item {% if forloop.first %}active{% endif %}">
+            <p class="testimonial">{{ quote.quote }}</p>
+            <p class="overview">{{ quote.who }}, <a href="{{ quote.link }}" target="_blank">{{ quote.org }}</a></p>
+          </div>
+        {% endfor %}
+			</div>
+			<!-- Carousel controls -->
+			<a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+				<i class="fa fa-angle-left"></i>
+			</a>
+			<a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<h2>What's a database project without statistics?</h2>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 feature-grid">
+      <h3>30+ Years Development</h3>
+    </div>
+    <div class="col-sm-3 feature-grid">
+      <h3>500+ Contributors</h3>
+    </div>
+    <div class="col-sm-3 feature-grid">
+      <h3>47,500+ Commits</h3>
+    </div>
+    <div class="col-sm-3 feature-grid">
+      <h3>50+ Local User Groups</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 feature-grid">
+      <h3>1,250,000+ Lines of C</h3>
+    </div>
+    <div class="col-sm-3 feature-grid">
+      <h3>600+ Events</h3>
+    </div>
+    <div class="col-sm-3 feature-grid">
+      <h3>Millions of Happy Users</h3>
+    </div>
+    <div class="col-sm-3 feature-grid">
+      <h3>&#8734; Data Stored</h3>
+    </div>
+  </div>
+</div>
+{%endblock%}

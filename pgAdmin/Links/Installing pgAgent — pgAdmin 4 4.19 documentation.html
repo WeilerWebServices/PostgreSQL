@@ -1,0 +1,402 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1345454-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1345454-3');
+    </script>
+
+    <!-- Template rendered: 25th March 2020 19:45:08 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="pgAdmin - PostgreSQL Tools for Windows, Mac, Linux and the Web">
+    <meta name="author" content="Dave Page">
+    <link rel="icon" href="/static/img/favicon.ico">
+
+    <title>Installing pgAgent &mdash; pgAdmin 4 4.19 documentation</title>
+
+    <link href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/node_modules/font-mfizz/dist/font-mfizz.css" rel="stylesheet" >
+    <link href="/static/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/COMPILED/css/pgaweb.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+      <a class="navbar-brand" href="/"><i class="icon-postgres-alt"></i> pgAdmin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <!-- Home menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/">Introduction</a>
+                <a class="dropdown-item" href="/try/">Online Demo</a>
+                <a class="dropdown-item" href="/faq/">FAQ</a>
+                <a class="dropdown-item" href="/features/">Features</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/contributing/">Contributing</a>
+                <a class="dropdown-item" href="/licence/">Licence</a>
+                <a class="dropdown-item" href="/privacy_policy/">Privacy Policy</a>
+              </div>
+            </li>
+
+            <!-- Development menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Development <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/development/">Introduction</a>
+                <a class="dropdown-item" href="/development/resources/">Resources</a>
+                <a class="dropdown-item" href="/styleguide/">Style Guide</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/development/team/">Team</a>
+              </div>
+            </li>
+
+            <!-- Documentation menu -->
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/docs/">Introduction</a>
+                <a class="dropdown-item" href="/screenshots/">Screenshots</a>
+                
+                
+                <a class="dropdown-header">pgAdmin 4:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.19/index.html">Version 4.19</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.18/index.html">Version 4.18</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/4.17/index.html">Version 4.17</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/3.6/index.html">Version 3.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/2.1/index.html">Version 2.1</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/1.6/index.html">Version 1.6</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin4/development/index.html">Development</a>
+                  
+                
+                <a class="dropdown-header">pgAdmin 3:</a>
+                  
+                  <a class="dropdown-item" href="/docs/pgadmin3/1.22.2/index.html">Version 1.22.2</a>
+                  
+                
+              </div>
+            </li>
+
+            <!-- Download menu -->
+            <li class="nav-item"><a class="nav-link" href="/download/">Download</a></li>
+
+            <!-- Support menu -->
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Support <span class="caret"></span></a>
+              <div class="dropdown-menu" aria-labelledby="category-dropdown">
+                <a class="dropdown-item" href="/support/">Introduction</a>
+                <a class="dropdown-item" href="/support/list/">Mailing List</a>
+                <a class="dropdown-item" href="/support/issues/">Known Issues</a>
+              </div>
+            </li>
+
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0" id="search_button">
+          <button type="button" class="btn btn-default btn-outline-primary" aria-label="Right Align">
+            <span class="fa fa-search fa-lg" aria-hidden="true"></span>
+          </button>
+        </form>
+      </ul>
+    </nav>
+
+    <script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+<main class="pga-content">
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Action panel -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-left">
+            <div class="well pga-quicklinks">
+    <h2>Quick Links</h2>
+
+        <p><a href="/try/"><i class="fa fa-laptop" aria-hidden="true"></i><br />Online Demo</a></p>
+    <p><a href="/download/"><i class="fa fa-download" aria-hidden="true"></i><br />Download</a></p>
+    <p><a href="/faq/"><i class="fa fa-info" aria-hidden="true"></i><br />FAQ</a></p>
+    <p><a href="/docs/pgadmin4/latest/index.html"><i class="fa fa-book" aria-hidden="true"></i><br />Latest Docs</a></p>
+    <p><a href="/support/list/"><i class="fa fa-question-circle" aria-hidden="true"></i><br />Ask a Question</a></p>
+    <p><a href="https://redmine.postgresql.org/projects/pgadmin4/issues/new"><i class="fa fa-bug" aria-hidden="true"></i><br />Report a Bug</a></p>
+    <p><a href="/screenshots/"><i class="fa fa-desktop" aria-hidden="true"></i><br />Screenshots</a></p>
+</div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-sm-8">
+            
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Navigation bar -->
+        <div class="col-lg-12">
+            <div class="well pga-docheader">
+                <p class="pga-docheaderinfo">This page in other versions:
+                    <a href="/docs/pgadmin4/latest/pgagent_install.html">Latest</a> (<a  href="/docs/pgadmin4/4.19/pgagent_install.html">4.19</a>)
+                     | 
+                    <a  href="/docs/pgadmin4/4.18/pgagent_install.html">4.18</a>
+                     | 
+                    <a  href="/docs/pgadmin4/4.17/pgagent_install.html">4.17</a>
+                     | 
+                    <a  href="/docs/pgadmin4/3.6/pgagent_install.html">3.6</a>
+                     | 
+                    <a  href="/docs/pgadmin4/2.1/pgagent_install.html">2.1</a>
+                     | 
+                    <a  href="/docs/pgadmin4/1.6/pgagent_install.html">1.6</a>
+                     | 
+                    <a class="pga-doccurrent" href="/docs/pgadmin4/development/pgagent_install.html">Development</a>
+                    
+                    
+                </p>
+                
+                <h3>Navigation</h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="genindex.html" title="General Index">index</a></li>
+<li class="right">
+<a accesskey="N" href="pgagent_jobs.html" title="Creating a pgAgent Job">next</a> |</li>
+<li class="right">
+<a accesskey="P" href="using_pgagent.html" title="Using pgAgent">previous</a> |</li>
+<li class="nav-item nav-item-0"><a href="index.html">pgAdmin 4 4.19 documentation</a> &raquo;</li>
+<li class="nav-item nav-item-1"><a accesskey="U" href="pgagent.html">pgAgent</a> &raquo;</li>
+</ul>
+            </div>
+            
+            <p class="warning">
+                <b>Warning:</b> This documentation is for a pre-release version of pgAdmin 4
+            </p>
+            
+        </div>
+    </div>
+</div>
+<div class="container-fluid pga-docwrapper">
+    <div class="row">
+        <!-- Contents bar -->
+        <div class="col-lg-3">
+            <div class="well pga-doccontents"><h2>Contents</h2><ul>
+<li><a class="reference internal" href="#">Installing pgAgent</a><ul>
+<li><a class="reference internal" href="#database-setup">Database setup</a></li>
+<li><a class="reference internal" href="#daemon-installation-on-unix">Daemon installation on Unix</a></li>
+<li><a class="reference internal" href="#service-installation-on-windows">Service installation on Windows</a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connecting.html">Connecting To A Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_cluster_objects.html">Managing Cluster Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="managing_database_objects.html">Managing Database Objects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modifying_tables.html">Creating or Modifying a Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="management_basics.html">Management Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backup_and_restore.html">Backup and Restore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_tools.html">Developer Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="pgagent.html">pgAgent</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="using_pgagent.html">Using pgAgent</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing pgAgent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pgagent_jobs.html">Creating a pgAgent Job</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">pgAdmin Project Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
+</ul>
+
+<script type="text/javascript">$('#searchbox').show(0);</script></div>
+        </div>
+
+        <!-- Body -->
+        <div class="col-lg-9">
+            <div class="pga-docbody"><div class="section" id="installing-pgagent">
+<span id="pgagent-install"></span><h1><span class="target" id="index-0"></span>Installing pgAgent<a class="headerlink" href="#installing-pgagent" title="Permalink to this headline">&para;</a></h1>
+<p>pgAgent runs as a daemon on Unix systems, and a service on Windows systems.  In
+most cases it will run on the database server itself - for this reason, pgAgent
+is not automatically configured when pgAdmin is installed. In some cases
+however, it may be preferable to run pgAgent on multiple systems, against the
+same database; individual jobs may be targeted at a particular host, or left
+for execution by any host. Locking prevents execution of the same instance of a
+job by multiple hosts.</p>
+<div class="section" id="database-setup">
+<h2>Database setup<a class="headerlink" href="#database-setup" title="Permalink to this headline">&para;</a></h2>
+<p>Before using pgAdmin to manage pgAgent, you must create the pgAgent extension in
+the maintenance database registered with pgAdmin.  To install pgAgent on a
+PostgreSQL host, connect to the <em>postgres</em> database, and navigate  through the
+<em>Tools</em> menu to open the Query tool.  For server versions 9.1 or later, and
+pgAgent 3.4.0 or later, enter the following command in the query window, and
+click the <em>Execute</em> icon:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="n">EXTENSION</span> <span class="n">pgagent</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This command will create a number of tables and other objects in a schema
+called &lsquo;pgagent&rsquo;.</p>
+<p>The database must also have the pl/pgsql procedural language installed - use
+the PostgreSQL CREATE LANGUAGE command to install pl/pgsql if necessary.  To
+install pl/pgsql, enter the following command in the query window, and click
+the <em>Execute</em> icon:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">LANGUAGE</span> <span class="n">plpgsql</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you are using an earlier version of PostgreSQL or pgAgent, use the
+<em>Open file</em> icon on the Query Tool toolbar to open a browser window and locate
+the <em>pgagent.sql</em> script. The installation script is installed by pgAdmin, and
+the installation location varies from operating system to operating system:</p>
+<ul class="simple">
+<li>On Windows, it is usually located under <em>C:\Program files\pgAdmin III</em> (or
+<em>C:\Program files\PostgreSQL\8.x\pgAdmin III</em> if installed with the PostgreSQL
+server installer).</li>
+<li>On Linux, it is usually located under <em>/usr/local/pgadmin3/share/pgadmin3</em>
+or <em>/usr/share/pgadmin3</em>.</li>
+</ul>
+<p>After loading the file into the Query Tool, click the <em>Execute</em> icon to execute
+the script.  The script will create a number of tables and other objects in a
+schema named <em>pgagent</em>.</p>
+</div>
+<div class="section" id="daemon-installation-on-unix">
+<h2>Daemon installation on Unix<a class="headerlink" href="#daemon-installation-on-unix" title="Permalink to this headline">&para;</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">pgAgent is available in Debian/Ubuntu (DEB) and Redhat/Fedora (RPM)
+packages for Linux users, as well as source code. See the
+<a class="reference external" href="https://www.pgadmin.org/download/">pgAdmin Website</a>. for more
+information.</p>
+</div>
+<p>To install the pgAgent daemon on a Unix system, you will normally need to have
+root privileges to modify the system startup scripts.  Modifying system startup
+scripts is quite system-specific so you should consult your system documentation
+for further information.</p>
+<p>The program itself takes few command line options, most of which are only
+needed for debugging or specialised configurations:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">pgagent</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">connect</span><span class="o">-</span><span class="n">string</span><span class="o">&gt;</span>
+
+<span class="n">options</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">f</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">foreground</span> <span class="p">(</span><span class="n">do</span> <span class="ow">not</span> <span class="n">detach</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">terminal</span><span class="p">)</span>
+  <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">poll</span> <span class="n">time</span> <span class="n">interval</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">default</span> <span class="mi">10</span><span class="p">)</span><span class="o">&gt;</span>
+  <span class="o">-</span><span class="n">r</span> <span class="o">&lt;</span><span class="n">retry</span> <span class="n">period</span> <span class="n">after</span> <span class="n">connection</span> <span class="n">abort</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="p">(</span><span class="o">&gt;=</span><span class="mi">10</span><span class="p">,</span> <span class="n">default</span> <span class="mi">30</span><span class="p">)</span><span class="o">&gt;</span>
+  <span class="o">-</span><span class="n">s</span> <span class="o">&lt;</span><span class="n">log</span> <span class="n">file</span> <span class="p">(</span><span class="n">messages</span> <span class="n">are</span> <span class="n">logged</span> <span class="n">to</span> <span class="n">STDOUT</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">specified</span><span class="p">)</span><span class="o">&gt;</span>
+  <span class="o">-</span><span class="n">l</span> <span class="o">&lt;</span><span class="n">logging</span> <span class="n">verbosity</span> <span class="p">(</span><span class="n">ERROR</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">WARNING</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">DEBUG</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The connection string is a standard PostgreSQL libpq connection string (see
+the <a class="reference external" href="https://www.postgresql.org/docs/current/libpq.html#libpq-connect">PostgreSQL documentation on the connection string</a>
+for further details). For example, the following command line will run pgAgent
+against a server listening on the localhost, using a database called &lsquo;pgadmin&rsquo;,
+connecting as the user &lsquo;postgres&rsquo;:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/path/to/pgagent <span class="nv">hostaddr</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">dbname</span><span class="o">=</span>postgres <span class="nv">user</span><span class="o">=</span>postgres
+</pre></div>
+</div>
+</div>
+<div class="section" id="service-installation-on-windows">
+<h2>Service installation on Windows<a class="headerlink" href="#service-installation-on-windows" title="Permalink to this headline">&para;</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">pgAgent is available in a pre-built installer if you use
+<a class="reference external" href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">EnterpriseDB&rsquo;s PostgreSQL Installers</a>.
+Use the StackBuilder application to download and install it. If installed
+in this way, the service will automatically be created and the instructions
+below can be ignored.</p>
+</div>
+<p>pgAgent can install itself as a service on Windows systems.  The command line
+options available are similar to those on Unix systems, but include an
+additional parameter to tell the service what to do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Usage</span><span class="p">:</span>
+  <span class="n">pgAgent</span> <span class="n">REMOVE</span> <span class="o">&lt;</span><span class="n">serviceName</span><span class="o">&gt;</span>
+  <span class="n">pgAgent</span> <span class="n">INSTALL</span> <span class="o">&lt;</span><span class="n">serviceName</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">connect</span><span class="o">-</span><span class="n">string</span><span class="o">&gt;</span>
+  <span class="n">pgAgent</span> <span class="n">DEBUG</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span> <span class="o">&lt;</span><span class="n">connect</span><span class="o">-</span><span class="n">string</span><span class="o">&gt;</span>
+
+  <span class="n">options</span><span class="p">:</span>
+    <span class="o">-</span><span class="n">u</span> <span class="o">&lt;</span><span class="n">user</span> <span class="ow">or</span> <span class="n">DOMAIN</span>\<span class="n">user</span><span class="o">&gt;</span>
+    <span class="o">-</span><span class="n">p</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span>
+    <span class="o">-</span><span class="n">d</span> <span class="o">&lt;</span><span class="n">displayname</span><span class="o">&gt;</span>
+    <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">poll</span> <span class="n">time</span> <span class="n">interval</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="p">(</span><span class="n">default</span> <span class="mi">10</span><span class="p">)</span><span class="o">&gt;</span>
+    <span class="o">-</span><span class="n">r</span> <span class="o">&lt;</span><span class="n">retry</span> <span class="n">period</span> <span class="n">after</span> <span class="n">connection</span> <span class="n">abort</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="p">(</span><span class="o">&gt;=</span><span class="mi">10</span><span class="p">,</span> <span class="n">default</span> <span class="mi">30</span><span class="p">)</span><span class="o">&gt;</span>
+    <span class="o">-</span><span class="n">l</span> <span class="o">&lt;</span><span class="n">logging</span> <span class="n">verbosity</span> <span class="p">(</span><span class="n">ERROR</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">WARNING</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">DEBUG</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">default</span> <span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The service may be quite simply installed from the command line as follows
+(adjust the path as required):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">"C:\Program Files\pgAgent\bin\pgAgent"</span> INSTALL pgAgent -u postgres -p secret <span class="nv">hostaddr</span><span class="o">=</span><span class="m">127</span>.0.0.1 <span class="nv">dbname</span><span class="o">=</span>postgres <span class="nv">user</span><span class="o">=</span>postgres
+</pre></div>
+</div>
+<p>You can then start the service at the command line using <em>net start pgAgent</em>,
+or from the <em>Services</em> control panel applet. Any logging output or errors will
+be reported in the Application event log. The DEBUG mode may be used to run
+pgAgent from a command prompt. When run this way, log messages will output to
+the command window.</p>
+</div>
+</div></div>
+        </div>
+    </div>
+ </div>
+
+        </div>
+
+        <!-- Ad -->
+        <div class="col-sm-2 pga-sidebar pga-sidebar-right">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- pgAdmin Responsive -->
+<ins class="adsbygoogle"
+     style="display:block;min-width:100px;max-width:300px;width:100%;height:600px"
+     data-ad-client="ca-pub-7509009547019933"
+     data-ad-slot="4114194323"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+    </div>
+ </div>
+
+</main>
+
+
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
+     <script>
+      $('#search_button').click(function(){
+
+        var $form = '<form class="form-inline my-2 my-lg-0" action="/search/" method="get">\
+<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search this document" size="20" aria-label="Search">\
+<button class="btn btn-primary my-2 my-sm-0" type="submit"><span class="fa fa-search fa-lg" aria-hidden="true"></span></button>\
+<input type="hidden" name="v" value="57"></form>';
+
+        $('#search_button').replaceWith($form);
+      });
+    </script>
+
+
+
+  </body>
+</html>

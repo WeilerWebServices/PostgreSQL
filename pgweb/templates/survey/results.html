@@ -1,0 +1,39 @@
+{%extends "base/page.html"%}
+{%block title%}Survey Results: {{survey}}{%endblock%}
+{%block contents%}
+<h1>Survey Results <i class="fas fa-list-ul"></i></h1>
+<p>The current results of our <strong>{{survey}}</strong> survey are:</p>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>Answer</th>
+      <th>Responses</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for a in survey.completeanswers%}
+        <tr>
+            <td>{{a.option}}</td>
+            <td>{{a.votes}}</td>
+            <td>{{a.votespercent}}%</td>
+        </tr>
+    {%endfor%}
+        <tr>
+            <td><strong>Total</strong></td>
+            <td>{{survey.totalvotes}}</td>
+            <td></td>
+        </tr>
+  </tbody>
+</table>
+
+<p>This survey was posted {{survey.posted|date}}.</p>
+
+<h2>Other Surveys</h2>
+<ul>
+  {%for s in surveylist%}
+  <li><a href="/community/survey/{{s.id}}-{{s.question|slugify}}/">{{s.question}}</a></li>
+  {%endfor%}
+</ul>
+{%endblock%}

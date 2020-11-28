@@ -1,0 +1,117 @@
+{%extends "base/page.html"%}
+{%block title%}Windows installers{%endblock%}
+{%block contents%}
+
+<h1>Windows installers <img class="logo" src="/media/img/windows.svg" alt="Windows Logo" /></h1>
+
+<h2>Interactive installer by EnterpriseDB</h2>
+
+<p>
+<a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads"> Download the installer</a>
+ certified by EnterpriseDB for all supported PostgreSQL versions.
+</p>
+
+<p>This installer includes the PostgreSQL server, pgAdmin; a graphical tool for managing and developing
+your databases, and StackBuilder; a package manager that can be used to download and install
+additional PostgreSQL tools and drivers. Stackbuilder includes management,
+integration, migration, replication, geospatial, connectors and other tools.
+</p>
+
+<p>
+This installer can run in graphical or silent install modes.
+</p>
+
+<p>
+The installer is designed to be a straightforward, fast way to get up and running with
+PostgreSQL on Windows.
+</p>
+
+<p>
+<em>Advanced users</em> can also download a
+<a href="https://www.enterprisedb.com/download-postgresql-binaries">zip archive</a>
+of the binaries, without the installer.
+This download is intended for users who wish to include PostgreSQL as part of another application installer.
+</p>
+
+<h3>Platform support</h3>
+
+<p>The installers are tested by EnterpriseDB on the following platforms.
+    They can generally be expected to run on other comparable versions:</p>
+
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>PostgreSQL Version</th>
+      <th>64 Bit Windows Platforms</th>
+      <th>32 Bit Windows Platforms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">12</th>
+      <td>2019, 2016, 2012 R2</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td>2019, 2016, 2012 R2</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>2016, 2012 R2 &amp; R1, 7, 8, 10</td>
+      <td>2008 R1, 7, 8, 10</td>
+    </tr>
+    <tr>
+      <th scope="row">9.6</th>
+      <td>2012 R2 &amp; R1, 2008 R2, 7, 8, 10</td>
+      <td>2008 R1, 7, 8, 10</td>
+    </tr>
+    <tr>
+      <th scope="row">9.5</th>
+      <td>2012 R2 &amp; R1, 2008 R2</td>
+      <td>2008 R1</td>
+    </tr>
+    <tr>
+      <th scope="row">9.4</th>
+      <td>2012 R2, 2008 R2</td>
+      <td>2008 R1</td>
+    </tr>
+  </tbody>
+</table>
+
+{% comment %}
+<h2>Graphical installer by BigSQL</h2>
+
+<p>
+<a href="https://www.bigsql.org/postgresql/installers.jsp">Download the
+graphical installer</a> from BigSQL for all supported versions.
+</p>
+
+<p>
+This distribution includes the PostgreSQL server, a graphical component
+manager, command line and graphical tools for managing databases, plus
+many open source community components.
+</p>
+<p>
+Integrated components include web and desktop developer tools, geospatial,
+provisioning &amp; management, compatibility &amp; migration,
+backup/restore, integration with external databases (Cassandra,
+Oracle, SQL Server, Hadoop), and procedural languages (Python, Perl, Java, and TCL).
+</p>
+
+<p>
+This distribution is a fast, developer-friendly way to get a complete PostgreSQL
+environment installed and running. It uses an open source toolchain to build
+PostgreSQL and extensions, which simplifies cross-platform development of
+extensions.
+</p>
+
+<p>
+Advanced users can also download a
+<a href="https://www.bigsql.org/package-manager.jsp">command line</a>
+version of the distribution, for scriptable installs or embedding with other applications.
+</p>
+{% endcomment %}
+
+{%endblock%}
